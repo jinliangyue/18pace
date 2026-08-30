@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO TDK -->
+    <title>Treadmill Pace Converter for Sub 1:50 Half Marathon | 18pace</title>
+    <meta name="description" content="Convert your outdoor half marathon pace to treadmill speed (mph/kph). Includes 1-2% incline adjustments and real-world tips from an actual sub-1:50 finisher.">
+    <meta name="keywords" content="treadmill pace converter, treadmill speed for half marathon, treadmill 1% incline, treadmill pace adjustment, indoor half marathon training">
+    <meta name="author" content="18pace">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Treadmill Pace Converter | 18pace">
+    <meta property="og:description" content="Match your outdoor sub-1:50 effort indoors with accurate speed and incline adjustments.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://18pace.com/treadmill-pace">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://18pace.com/treadmill-pace">
+
+    <!-- GEO Optimization -->
+    <meta name="ai-content-declaration" content="ai-assisted-content">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Treadmill Pace Converter for Sub 1:50",
+        "description": "Convert your outdoor half marathon pace to treadmill speed with incline adjustments.",
+        "url": "https://18pace.com/treadmill-pace",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "18pace Runner",
+            "description": "Sub-1:50 half marathon finisher, civil engineering student"
+        }
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#f1f5f9',
+                        border: '#e2e8f0'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #fafafa;
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .input-field {
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 1.125rem;
+            background: #fff;
+            font-family: inherit;
+            outline: none;
+        }
+        .input-field:focus {
+            border-color: #94a3b8;
+            box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
+        }
+        .btn-primary {
+            background: #0f172a;
+            color: #fff;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .btn-primary:hover { background: #1e293b; }
+    </style>
+</head>
+
+<body class="min-h-screen p-4 md:p-8">
+    <!-- Header (consistent with other pages) -->
+    <header class="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                    18
+                </div>
+                <span class="font-bold text-lg">18pace</span>
+            </a>
+            <nav class="flex items-center gap-4 text-sm">
+                <a href="/" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
+                <a href="/training-plan" class="text-muted-foreground hover:text-foreground transition-colors">Training</a>
+                <a href="/gel-nutrition" class="text-muted-foreground hover:text-foreground transition-colors">Nutrition</a>
+                <a href="/treadmill-pace" class="text-foreground font-medium">Treadmill</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-3xl mx-auto pt-8 space-y-8">
+        <!-- Hero Section -->
+        <header class="text-center space-y-3">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Treadmill Pace Converter</h1>
+            <p class="text-muted-foreground">Match your outdoor sub-1:50 effort indoors with accurate speed and incline.</p>
+        </header>
+
+        <!-- Calculator Card -->
+        <div class="card p-6 space-y-6">
+            <div>
+                <label class="text-sm font-medium block mb-2 text-center">Outdoor Target Pace (min/km)</label>
+                <input type="text" id="targetPace" value="5:13" placeholder="e.g., 5:13" class="input-field max-w-xs mx-auto block">
+            </div>
+            <button onclick="convertPace()" class="btn-primary w-full max-w-xs mx-auto block">Calculate Treadmill Speed</button>
+
+            <div id="result" class="hidden mt-6 p-6 bg-secondary border border-border rounded-lg text-center">
+                <p class="text-muted-foreground text-sm mb-4 uppercase tracking-wider">Set your treadmill to:</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-4xl font-bold"><span id="speedKph"></span></p>
+                        <p class="text-sm font-medium text-muted-foreground mt-1">km/h</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold"><span id="speedMph"></span></p>
+                        <p class="text-sm font-medium text-muted-foreground mt-1">mph</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-border">
+                    <p class="text-sm font-medium bg-secondary py-2 px-3 rounded inline-block">
+                        Recommended Incline: 1.0% to 1.5%
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- E-E-A-T Real Experience -->
+        <div class="card p-6 space-y-4">
+            <h2 class="text-xl font-bold tracking-tight">Why Treadmills Feel Different (My 1:50 Experience)</h2>
+            <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                <p>When training for my sub-1:50 half marathon, rainy days forced me onto the treadmill. I quickly realized that setting the belt to 11.5 km/h (exactly 5:13/km pace) felt significantly easier than holding that exact same pace on the asphalt.</p>
+                <p><strong>The Air Resistance Factor:</strong> Outdoors, your body expends energy pushing through the air. On a treadmill, you stay stationary in a climate-controlled room. To replicate the outdoor cardiovascular load for a sub-1:50 pace, you must set the treadmill incline to at least <strong>1.0%</strong>.</p>
+                <p><strong>Belt Assistance:</strong> The motorized belt actively pulls your leg backward, slightly altering your natural biomechanics. If you do more than 30% of your 12-week training block on a flat treadmill, your hamstrings will be severely undertrained for the real road impact on race day.</p>
+                <p><strong>Pro Tip:</strong> Use the treadmill for tempo runs and recovery runs, but prioritize outdoor long runs for race-specific preparation.</p>
+            </div>
+        </div>
+
+        <!-- Internal Links -->
+        <div class="text-center pt-4 border-t border-border space-y-2">
+            <div class="flex flex-col md:flex-row gap-3 justify-center">
+                <a href="/" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                    ← Back to Pace Calculator
+                </a>
+                <a href="/training-plan" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                    12-Week Training Plan →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-border py-8 mt-12">
+        <div class="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
+            Built by an actual sub-1:50 runner · © 2026 18pace
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function convertPace() {
+            const paceInput = document.getElementById('targetPace').value;
+            const parts = paceInput.split(':');
+            if(parts.length !== 2) return;
+            const mins = parseInt(parts[0]);
+            const secs = parseInt(parts[1]);
+            const totalMinsPerKm = mins + (secs / 60);
+
+            const kph = 60 / totalMinsPerKm;
+            const mph = kph / 1.60934;
+
+            document.getElementById('speedKph').textContent = kph.toFixed(1);
+            document.getElementById('speedMph').textContent = mph.toFixed(1);
+            document.getElementById('result').classList.remove('hidden');
+        }
+        // Initialize with default value
+        convertPace();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <div style="display:none">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-W24L7KH2YL');
+    </script>
+    </div>
+</body>
+</html>
