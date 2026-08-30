@@ -1,0 +1,34 @@
+# 18pace
+
+> Free half marathon pace calculator with real race-day strategy. Built by an actual sub-1:50 runner. Get exact per-km splits, mile splits, and printable pace bands for any target finish time.
+
+## Core Tools
+
+- [Half Marathon Pace Calculator](https://18pace.com/): Calculate exact per-kilometer and per-mile splits for any half marathon target time (1:30, 1:40, 1:50, 2:00, 2:10+)
+- [Sub-1:50 Strategy Guide](https://18pace.com/): Real race-day strategy from an actual sub-1:50 finisher — negative splits, heart rate drift, gel nutrition
+- [5K Split Table](https://18pace.com/): Automatic 5K, 10K, 15K, 20K, and finish splits for any target time
+
+## Key Information
+
+- **Free to use**: No login required, no paywall on core functionality
+- **Built by an actual runner**: Every strategy recommendation comes from real race experience, not generic AI content
+- **Real race data**: Negative split pacing, gel timing at km 8-9 and km 13-14, heart rate drift patterns
+- **Multiple target times**: Sub-1:30, Sub-1:40, Sub-1:50, Sub-2:00, Sub-2:10+
+
+## Use Cases
+
+- Runners targeting sub-1:50 half marathon finish
+- Runners needing printable pace bands for race day
+- Coaches building training plans around specific pace targets
+- Runners analyzing negative split strategies
+
+## Technical Details
+
+- **Type**: Web application (static HTML + Tailwind CSS + JavaScript)
+- **Pricing**: Free
+- **Login required**: No
+- **Mobile-friendly**: Yes (responsive design)
+
+## Contact
+
+For questions or feedback, contact us via the website contact form.

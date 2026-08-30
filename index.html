@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================ -->
+    <!-- SEO TDK (Title / Description / Keywords) -->
+    <!-- ============================ -->
+    <title>1:50 Half Marathon Pace Calculator — Sub-1:50 Split Chart & Strategy | 18pace</title>
+    <meta name="description" content="Free 1:50 half marathon pace calculator. Get exact per-km splits, mile splits, and a printable pace band for sub-1:50 finishers. Built by an actual sub-1:50 runner with real race-day data.">
+    <meta name="keywords" content="1:50 half marathon pace, sub 1:50 half marathon, half marathon pace calculator, half marathon split chart, 1 hour 50 min half marathon, printable pace band">
+    <meta name="author" content="18pace">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="1:50 Half Marathon Pace Calculator | 18pace">
+    <meta property="og:description" content="Exact pace splits for sub-1:50 finishers. Built with real race-day experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://18pace.com">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://18pace.com/">
+
+    <!-- ============================ -->
+    <!-- GEO Optimization: llms.txt / robots.txt hints -->
+    <!-- ============================ -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="ai-content-declaration" content="ai-assisted-content">
+
+    <!-- ============================ -->
+    <!-- JSON-LD Structured Data (Schema.org) -->
+    <!-- ============================ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "1:50 Half Marathon Pace Calculator",
+        "description": "Calculate exact per-km and per-mile splits for a 1 hour 50 minute half marathon finish.",
+        "url": "https://18pace.com",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "18pace Runner",
+            "description": "Sub-1:50 half marathon finisher"
+        }
+    }
+    </script>
+
+    <!-- FAQ Schema for GEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What pace do I need for a 1:50 half marathon?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need to average approximately 5:13 per kilometer (8:24 per mile) to finish a half marathon in 1 hour 50 minutes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is 1:50 a good half marathon time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "1:50 is a strong amateur half marathon time, placing most finishers in the top 10-15% of their age group globally."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 84% 4.9%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
+                        primary: {
+                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .gradient-bg { background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%); }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+</head>
+
+<body class="bg-background text-foreground antialiased">
+    <!-- ============================ -->
+    <!-- HEADER (Shadcn UI 风格：干净、极简) -->
+    <!-- ============================ -->
+    <header class="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                    18
+                </div>
+                <span class="font-bold text-lg">18pace</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="#calculator" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
+                <a href="#strategy" class="text-muted-foreground hover:text-foreground transition-colors">Strategy</a>
+                <a href="#experience" class="text-muted-foreground hover:text-foreground transition-colors">Real Experience</a>
+                <a href="#faq" class="text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================ -->
+    <section class="gradient-bg border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+                    Built by an actual sub-1:50 finisher
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                    The exact pace you need to break 1:50 in the half marathon.
+                </h1>
+
+                <p class="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+                    No more guessing. Get precise per-kilometer and per-mile splits, a printable pace band, and a race-day strategy from someone who has actually run 1:50.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="#calculator" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+                        Calculate My Splits
+                    </a>
+                    <a href="#experience" class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-border bg-background hover:bg-secondary transition-colors font-medium">
+                        Read the Real Race Story
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- CALCULATOR SECTION (核心功能) -->
+    <!-- ============================ -->
+    <section id="calculator" class="py-20 border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                        1:50 Half Marathon Pace Calculator
+                    </h2>
+                    <p class="text-muted-foreground">
+                        Enter your target finish time to see exact splits.
+                    </p>
+                </div>
+
+                <div class="rounded-lg border border-border bg-card p-8 shadow-sm">
+                    <div class="space-y-6">
+                        <!-- 时间输入 -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Target Finish Time</label>
+                            <div class="flex gap-3">
+                                <div class="flex-1">
+                                    <input type="number" id="hours" value="1" min="0" max="5"
+                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                                    <p class="text-xs text-muted-foreground mt-1">Hours</p>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="number" id="minutes" value="50" min="0" max="59"
+                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                                    <p class="text-xs text-muted-foreground mt-1">Minutes</p>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="number" id="seconds" value="0" min="0" max="59"
+                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                                    <p class="text-xs text-muted-foreground mt-1">Seconds</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 快捷选择 -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Quick Targets</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="setTime(1,30,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 1:30</button>
+                                <button onclick="setTime(1,40,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 1:40</button>
+                                <button onclick="setTime(1,50,0)" class="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm hover:opacity-90">Sub 1:50</button>
+                                <button onclick="setTime(2,0,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 2:00</button>
+                                <button onclick="setTime(2,10,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 2:10</button>
+                            </div>
+                        </div>
+
+                        <!-- 计算结果 -->
+                        <div id="results" class="pt-6 border-t border-border">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="rounded-md bg-secondary p-4">
+                                    <p class="text-xs text-muted-foreground mb-1">Per Kilometer</p>
+                                    <p class="text-2xl font-bold" id="pace-km">5:13</p>
+                                </div>
+                                <div class="rounded-md bg-secondary p-4">
+                                    <p class="text-xs text-muted-foreground mb-1">Per Mile</p>
+                                    <p class="text-2xl font-bold" id="pace-mile">8:24</p>
+                                </div>
+                                <div class="rounded-md bg-secondary p-4">
+                                    <p class="text-xs text-muted-foreground mb-1">Per 5K Split</p>
+                                    <p class="text-2xl font-bold" id="pace-5k">26:05</p>
+                                </div>
+                                <div class="rounded-md bg-secondary p-4">
+                                    <p class="text-xs text-muted-foreground mb-1">Speed (km/h)</p>
+                                    <p class="text-2xl font-bold" id="speed-kmh">11.50</p>
+                                </div>
+                            </div>
+
+                            <button onclick="printPaceBand()" class="mt-6 w-full px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+                                Print My Pace Band →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- REAL EXPERIENCE SECTION (信息增量) -->
+    <!-- ============================ -->
+    <section id="experience" class="py-20 border-b border-border bg-secondary/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                    What 1:50 actually feels like (from someone who ran it)
+                </h2>
+                <p class="text-lg text-muted-foreground mb-8">
+                    A calculator can give you splits. It can't tell you about the wall at km 16, or the moment your legs lock up at km 19. Here's the real race-day data.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="rounded-lg border border-border bg-card p-6">
+                        <h3 class="text-xl font-semibold mb-3">The first 10K: Holding back is hard</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Every instinct tells you to go out at 5:00/km. Don't. The first 10K should feel embarrassingly easy at 5:20-5:30/km. If you're not holding back, you'll pay for it at km 17.
+                        </p>
+                    </div>
+
+                    <div class="rounded-lg border border-border bg-card p-6">
+                        <h3 class="text-xl font-semibold mb-3">The 15-18K stretch: The wall is real</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            This is where most people break. Your gel timing matters: take your first gel at km 8-9, second at km 13-14. Skip the gel and your pace will drop 30+ seconds in the final 5K.
+                        </p>
+                    </div>
+
+                    <div class="rounded-lg border border-border bg-card p-6">
+                        <h3 class="text-xl font-semibold mb-3">The final 3K: Survive, then sprint</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            At km 18, you won't want to speed up. Your brain will lie to you. Hold your target pace. If you have anything left in the final 500m, use it. The clock rewards every second under 1:50.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- STRATEGY SECTION -->
+    <!-- ============================ -->
+    <section id="strategy" class="py-20 border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                    The 1:50 race-day strategy
+                </h2>
+                <p class="text-lg text-muted-foreground mb-12">
+                    A simple, repeatable plan. Tested in actual sub-1:50 finishes.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Negative split the first half</h3>
+                            <p class="text-muted-foreground">Start at 5:20-5:30/km for the first 10K. Pick up to 5:10/km for the second half.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Gel at km 8-9 and km 13-14</h3>
+                            <p class="text-muted-foreground">Don't wait until you feel hungry. Your glycogen is depleting long before your stomach notices.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Water at every station after km 7</h3>
+                            <p class="text-muted-foreground">Even if you're not thirsty. Dehydration in the back half is what kills your pace.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Hold target pace from km 18 to 20</h3>
+                            <p class="text-muted-foreground">The hardest 2K of your life. Stay disciplined. Sprint the final 1.1K.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- FAQ SECTION (SEO + GEO 友好) -->
+    <!-- ============================ -->
+    <section id="faq" class="py-20 border-t border-border">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">
+                Frequently asked questions
+            </h2>
+
+            <div class="space-y-4">
+                <details class="group rounded-lg border border-border bg-card p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
+                        What pace do I need for a 1:50 half marathon?
+                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="mt-4 text-muted-foreground">
+                        You need to average approximately <strong>5:13 per kilometer (8:24 per mile)</strong> to finish a half marathon in 1 hour 50 minutes.
+                    </p>
+                </details>
+
+                <details class="group rounded-lg border border-border bg-card p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
+                        Is 1:50 a good half marathon time?
+                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="mt-4 text-muted-foreground">
+                        1:50 is a strong amateur time. It places most finishers in the top 10-15% of their age group globally, and requires consistent training over 3-6 months.
+                    </p>
+                </details>
+
+                <details class="group rounded-lg border border-border bg-card p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
+                        How many miles is a 1:50 half marathon?
+                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="mt-4 text-muted-foreground">
+                        A half marathon is 13.1 miles (21.1 km) regardless of finish time.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- INTERNAL LINK: Training Plan -->
+    <!-- ============================ -->
+    <section class="py-16 border-t border-border bg-secondary/30">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">
+                Need a structured 12-week schedule?
+            </h2>
+            <p class="text-muted-foreground mb-6">
+                Built from an actual sub-1:50 training log using a "Fragmented Time" strategy for busy runners.
+            </p>
+            <a href="/training-plan" class="inline-flex items-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+                Try the Training Plan Generator →
+            </a>
+            <p class="text-xs text-muted-foreground mt-4">
+                Free · No signup · 12 weeks from base to race day
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================ -->
+    <!-- FOOTER -->
+    <!-- ============================ -->
+    <footer class="border-t border-border py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
+                        18
+                    </div>
+                    <span class="font-semibold">18pace</span>
+                </div>
+                <p class="text-sm text-muted-foreground">
+                    Built by an actual sub-1:50 runner. © 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================ -->
+    <!-- Calculator JavaScript -->
+    <!-- ============================ -->
+    <script>
+        function calculatePace() {
+            const h = parseInt(document.getElementById('hours').value) || 0;
+            const m = parseInt(document.getElementById('minutes').value) || 0;
+            const s = parseInt(document.getElementById('seconds').value) || 0;
+
+            const totalSeconds = h * 3600 + m * 60 + s;
+            const totalMinutes = totalSeconds / 60;
+
+            // 21.1 km, 13.1 miles
+            const pacePerKm = totalSeconds / 21.1;
+            const pacePerMile = totalSeconds / 13.1;
+            const split5k = (pacePerKm * 5);
+            const speedKmh = 21.1 / (totalSeconds / 3600);
+
+            document.getElementById('pace-km').textContent = formatTime(pacePerKm);
+            document.getElementById('pace-mile').textContent = formatTime(pacePerMile);
+            document.getElementById('pace-5k').textContent = formatTime(split5k);
+            document.getElementById('speed-kmh').textContent = speedKmh.toFixed(2);
+        }
+
+        function formatTime(totalSeconds) {
+            const m = Math.floor(totalSeconds / 60);
+            const s = Math.round(totalSeconds % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function setTime(h, m, s) {
+            document.getElementById('hours').value = h;
+            document.getElementById('minutes').value = m;
+            document.getElementById('seconds').value = s;
+            calculatePace();
+        }
+
+        function printPaceBand() {
+            window.print();
+        }
+
+        // Auto-calculate on input change
+        ['hours', 'minutes', 'seconds'].forEach(id => {
+            document.getElementById(id).addEventListener('input', calculatePace);
+        });
+
+        // Initial calculation
+        calculatePace();
+    </script>
+</body>
+</html>

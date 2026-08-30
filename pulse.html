@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Effect - 18pace P5.js Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        canvas { display: block; }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid #1e293b;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            min-width: 220px;
+        }
+        .controls h2 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.8125rem;
+        }
+        .control-row label { color: #94a3b8; font-weight: 500; }
+        .control-row .value { color: white; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            z-index: 100;
+        }
+        .back-link:hover { background: #f1f5f9; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h2>Pulse Mode</h2>
+        <div class="control-row">
+            <label>Density</label>
+            <span class="value" id="density-val">30</span>
+        </div>
+        <div class="control-row">
+            <label>Size</label>
+            <span class="value" id="size-val">6</span>
+        </div>
+        <div class="control-row">
+            <label>Speed</label>
+            <span class="value" id="speed-val">1.0</span>
+        </div>
+        <div class="control-row">
+            <label>Spacing</label>
+            <span class="value" id="spacing-val">40</span>
+        </div>
+        <div class="control-row">
+            <label>Total Dots</label>
+            <span class="value" id="total-val">0</span>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to 18pace</a>
+
+    <script>
+        let dots = [];
+        let params = { density: 30, size: 6, speed: 1.0, spacing: 40, cols: 0, rows: 0 };
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            initDots();
+        }
+
+        function initDots() {
+            dots = [];
+            params.cols = floor(width / params.spacing);
+            params.rows = floor(height / params.spacing);
+            for (let i = 0; i < params.cols; i++) {
+                for (let j = 0; j < params.rows; j++) {
+                    dots.push({
+                        x: i * params.spacing + params.spacing / 2,
+                        y: j * params.spacing + params.spacing / 2,
+                        distance: 0
+                    });
+                }
+            }
+            document.getElementById('total-val').textContent = dots.length;
+        }
+
+        function draw() {
+            background(15, 23, 42);
+            noStroke();
+            fill(255, 255, 255);
+
+            let t = frameCount * 0.04 * params.speed;
+            let centerX = width / 2;
+            let centerY = height / 2;
+            let maxDist = dist(0, 0, centerX, centerY);
+
+            for (let d of dots) {
+                d.distance = dist(d.x, d.y, centerX, centerY) / maxDist;
+                let pulse = sin(t - d.distance * 6) * 0.5 + 0.5;
+                let alpha = pulse * 255;
+                let size = params.size * (0.5 + pulse * 0.8);
+
+                fill(255, 255, 255, alpha * 0.7);
+                circle(d.x, d.y, size);
+            }
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            initDots();
+        }
+    </script>
+</body>
+</html>

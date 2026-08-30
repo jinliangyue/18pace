@@ -1,0 +1,34 @@
+<!-- Google Analytics 4 + Microsoft Clarity - Add BEFORE </body> in index.html -->
+
+<!-- ============================================
+     步骤 1: 注册 GA4（如果还没有账号）
+     https://analytics.google.com/
+     → 管理 → 创建媒体资源 → 获得 G-XXXXXXXXXX 格式的测量 ID
+     步骤 2: 注册 Microsoft Clarity
+     https://clarity.microsoft.com/
+     → 创建新项目 → 获得 10 位 Project ID
+     步骤 3: 把下面的 G-XXXXXXXXXX 和 clarity ID 替换成你的
+     ============================================ -->
+
+<!-- Google Analytics 4 (GA4) - display:none 防止阻塞 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');  ← 替换成你的 GA4 测量 ID
+</script>
+
+<!-- GA4 加载脚本 - async + display:none 防止阻塞渲染 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" style="display:none;visibility:hidden"></script>
+
+<!-- Microsoft Clarity - 免费录屏 + 热图 -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src=l.location.protocol==='https:'?
+      'https://www.clarity.ms/tag/'+i:
+      'http://www.clarity.ms/tag/'+i;
+    t.style.display='none';
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, 'clarity', 'script', 'XXXXXXXXXX');  ← 替换成你的 Clarity Project ID
+</script>
