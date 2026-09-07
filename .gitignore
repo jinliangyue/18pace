@@ -1,0 +1,35 @@
+# Cloudflare Pages / Wrangler
+.wrangler/
+.dev.vars
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node（预防未来加入构建步骤）
+node_modules/
+.npm
+.yarn
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+.env
+.env.local
+*.tmp
+*.bak
