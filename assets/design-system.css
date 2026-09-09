@@ -500,7 +500,7 @@ p { margin: 0 0 var(--space-3) 0; }
   font-weight: 700;
 }
 
-/* Result panel (V2.1 · reduced card containment) */
+/* Result panel (V2.2 · 5:13 visually dominant) */
 .calc-result {
   padding: var(--space-5) 0;
   background: transparent;
@@ -514,19 +514,19 @@ p { margin: 0 0 var(--space-3) 0; }
 }
 
 .calc-result-num {
-  font-size: clamp(64px, 10vw, 120px);
+  font-size: clamp(140px, 18vw, 240px);
   font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
   font-variant-numeric: tabular-nums;
   color: var(--color-text);
 }
 
 .calc-result-unit {
-  font-size: var(--text-h4);
+  font-size: var(--text-body);
   font-weight: 600;
   color: var(--color-text-muted);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-family: var(--font-mono);
 }
@@ -540,21 +540,22 @@ p { margin: 0 0 var(--space-3) 0; }
   border-top: 1px solid var(--color-border);
 }
 .calc-result-item .num {
-  font-size: var(--text-h3);
+  font-size: var(--text-h4);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
   display: block;
   line-height: 1;
+  color: var(--color-text-muted);
 }
 .calc-result-item .lbl {
-  font-size: var(--text-tiny);
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--color-text-muted);
+  color: var(--color-text-subtle);
   font-weight: 600;
   display: block;
-  margin-top: var(--space-1);
+  margin-top: 4px;
 }
 
 .calc-print {
@@ -859,12 +860,27 @@ p { margin: 0 0 var(--space-3) 0; }
 .exp-block:last-child { border-bottom: 1px solid var(--color-border); }
 
 .exp-block-km {
-  font-size: var(--text-display-sm);
+  font-size: clamp(48px, 7vw, 96px);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.9;
   font-variant-numeric: tabular-nums;
   margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+.exp-block-num {
+  display: inline-block;
+  font-size: var(--text-tiny);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin-right: var(--space-3);
+  padding-right: var(--space-3);
+  border-right: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 .exp-block h3 {
