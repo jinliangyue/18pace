@@ -341,26 +341,13 @@ p { margin: 0 0 var(--space-3) 0; }
   border-radius: 50%;
 }
 
-/* Hero big number panel (right column on desktop) */
+/* Hero big number panel (right column on desktop · V2.1 polished) */
 .hero-pace-panel {
   background: var(--color-bg-deep);
   color: var(--color-text-inverted);
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-7) var(--space-6);
   border-radius: var(--radius-2);
   position: relative;
-  overflow: hidden;
-}
-
-.hero-pace-panel::after {
-  content: '';
-  position: absolute;
-  bottom: -20%;
-  right: -20%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, var(--color-accent) 0%, transparent 60%);
-  opacity: 0.18;
-  pointer-events: none;
 }
 
 .hero-pace-label {
@@ -368,33 +355,34 @@ p { margin: 0 0 var(--space-3) 0; }
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-text-subtle);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
   font-weight: 600;
 }
 
 .hero-pace-number {
-  font-size: clamp(80px, 14vw, 168px);
+  font-size: clamp(140px, 22vw, 320px);
   font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
+  letter-spacing: -0.07em;
+  line-height: 0.82;
   font-variant-numeric: tabular-nums;
-  position: relative;
-  z-index: 1;
+  color: var(--color-accent);
 }
 
 .hero-pace-unit {
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-text-subtle);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-text-inverted);
   margin-top: var(--space-2);
   text-transform: uppercase;
+  font-family: var(--font-mono);
 }
 
 .hero-pace-secondary {
-  display: flex;
-  gap: var(--space-6);
-  margin-top: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
   padding-top: var(--space-5);
   border-top: 1px solid var(--color-border-inverted);
 }
@@ -404,13 +392,14 @@ p { margin: 0 0 var(--space-3) 0; }
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
   display: block;
+  line-height: 1;
 }
 .hero-pace-secondary-item .lbl {
   font-size: var(--text-tiny);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--color-text-subtle);
-  margin-top: 2px;
+  margin-top: var(--space-2);
   display: block;
 }
 
@@ -505,23 +494,23 @@ p { margin: 0 0 var(--space-3) 0; }
 }
 .calc-quick-btn:hover { border-color: var(--color-text); }
 .calc-quick-btn.is-active {
-  background: var(--color-dark);
-  color: var(--color-text-inverted);
-  border-color: var(--color-dark);
+  background: var(--color-accent);
+  color: var(--color-dark);
+  border-color: var(--color-accent);
+  font-weight: 700;
 }
 
-/* Result panel */
+/* Result panel (V2.1 · reduced card containment) */
 .calc-result {
-  padding: var(--space-6);
-  background: var(--color-bg-elevated);
-  border-radius: var(--radius-2);
-  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-5) 0;
+  background: transparent;
+  border-top: 1px solid var(--color-text);
 }
 
 .calc-result-main {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .calc-result-num {
@@ -539,6 +528,7 @@ p { margin: 0 0 var(--space-3) 0; }
   color: var(--color-text-muted);
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  font-family: var(--font-mono);
 }
 
 .calc-result-grid {
@@ -570,7 +560,6 @@ p { margin: 0 0 var(--space-3) 0; }
 .calc-print {
   margin-top: var(--space-5);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border-subtle);
 }
 
 /* ============================================== */
@@ -638,11 +627,22 @@ p { margin: 0 0 var(--space-3) 0; }
 }
 
 .timeline-stop-time {
-  font-size: var(--text-h3);
+  font-size: clamp(20px, 2.4vw, 32px);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-2);
+  line-height: 1;
+}
+
+.timeline-stop.is-finish .timeline-stop-time {
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+.timeline-stop.is-finish .timeline-stop-label {
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .timeline-stop-action {
