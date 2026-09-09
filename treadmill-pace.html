@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO TDK -->
     <title>Treadmill Pace Converter for Sub 1:50 Half Marathon | 18pace</title>
     <meta name="description" content="Convert your outdoor half marathon pace to treadmill speed (mph/kph). Includes 1-2% incline adjustments and real-world tips from an actual sub-1:50 finisher.">
     <meta name="keywords" content="treadmill pace converter, treadmill speed for half marathon, treadmill 1% incline, treadmill pace adjustment, indoor half marathon training">
     <meta name="author" content="18pace">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Treadmill Pace Converter | 18pace">
     <meta property="og:description" content="Match your outdoor sub-1:50 effort indoors with accurate speed and incline adjustments.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://18pace.com/treadmill-pace">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://18pace.com/treadmill-pace">
 
-    <!-- GEO Optimization -->
+    <meta name="robots" content="index, follow">
     <meta name="ai-content-declaration" content="ai-assisted-content">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,209 +28,240 @@
         "url": "https://18pace.com/treadmill-pace",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Person",
-            "name": "18pace Runner",
-            "description": "Sub-1:50 half marathon finisher, civil engineering student"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Person", "name": "18pace Runner", "description": "Sub-1:50 half marathon finisher" }
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        primary: '#0f172a',
-                        secondary: '#f1f5f9',
-                        border: '#e2e8f0'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/design-system.css">
 
-    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #fafafa;
-            color: #0f172a;
-            -webkit-font-smoothing: antialiased;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .input-field {
-            width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.375rem;
-            padding: 0.5rem;
-            text-align: center;
-            font-size: 1.125rem;
-            background: #fff;
-            font-family: inherit;
-            outline: none;
-        }
-        .input-field:focus {
-            border-color: #94a3b8;
-            box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
-        }
-        .btn-primary {
-            background: #0f172a;
-            color: #fff;
-            padding: 0.75rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: #1e293b; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header (consistent with other pages) -->
-    <header class="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                    18
-                </div>
-                <span class="font-bold text-lg">18pace</span>
+<body>
+
+    <a href="#converter" class="skip-link">Skip to calculator</a>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main">
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo" aria-label="18pace home">
+                <span class="nav-logo-mark">18</span>
+                <span>pace</span>
             </a>
-            <nav class="hidden md:flex items-center gap-4 text-sm">
-                <a href="/" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
-                <a href="/training-plan" class="text-muted-foreground hover:text-foreground transition-colors">Training</a>
-                <a href="/gel-nutrition" class="text-muted-foreground hover:text-foreground transition-colors">Nutrition</a>
-                <a href="/treadmill-pace" class="text-muted-foreground hover:text-foreground transition-colors">Treadmill</a>
-                <a href="/heart-rate-zones" class="text-muted-foreground hover:text-foreground transition-colors">HR Zones</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="max-w-3xl mx-auto pt-8 space-y-8">
-        <!-- Hero Section -->
-        <header class="text-center space-y-3">
-            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Treadmill Pace Converter</h1>
-            <p class="text-muted-foreground">Match your outdoor sub-1:50 effort indoors with accurate speed and incline.</p>
-        </header>
-
-        <!-- Calculator Card -->
-        <div class="card p-6 space-y-6">
-            <div>
-                <label class="text-sm font-medium block mb-2 text-center">Outdoor Target Pace (min/km)</label>
-                <input type="text" id="targetPace" value="5:13" placeholder="e.g., 5:13" class="input-field max-w-xs mx-auto block">
+            <div class="nav-links">
+                <a href="/" class="nav-link">Pace Calculator</a>
+                <a href="/training-plan" class="nav-link">Training</a>
+                <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+                <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
             </div>
-            <button onclick="convertPace()" class="btn-primary w-full max-w-xs mx-auto block">Calculate Treadmill Speed</button>
+            <a href="/" class="nav-cta">Pace Calculator <span class="nav-cta-arrow">→</span></a>
 
-            <div id="result" class="hidden mt-6 p-6 bg-secondary border border-border rounded-lg text-center">
-                <p class="text-muted-foreground text-sm mb-4 uppercase tracking-wider">Set your treadmill to:</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <p class="text-4xl font-bold"><span id="speedKph"></span></p>
-                        <p class="text-sm font-medium text-muted-foreground mt-1">km/h</p>
+            <button class="nav-mobile" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="14" x2="17" y2="14"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+            <a href="/" class="nav-link">Pace Calculator</a>
+            <a href="/training-plan" class="nav-link">Training</a>
+            <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+            <!-- /treadmill-pace self-link removed -->
+            <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
+            <a href="/" class="btn btn-primary mt-3" onclick="toggleMobileMenu()">Pace Calculator →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow hero-trust">BUILT BY A SUB-1:50 FINISHER</p>
+            <h1 class="text-display hero-headline">Outdoor to treadmill.<br><span style="color: var(--color-text-muted)">Same effort, indoors.</span></h1>
+            <p class="hero-sub">Convert your outdoor pace to treadmill speed with the 1% incline rule. Free, no signup.</p>
+        </div>
+    </section>
+
+    <!-- CONVERTER -->
+    <section class="calc" id="converter">
+        <div class="container">
+            <div class="calc-grid">
+                <div class="calc-input-block">
+                    <label class="calc-label" for="targetPace">Outdoor pace (min:sec per km)</label>
+                    <div class="calc-inputs" style="grid-template-columns: 1fr;">
+                        <div class="calc-field">
+                            <input type="text" id="targetPace" value="5:13" placeholder="5:13" inputmode="numeric" aria-label="Outdoor target pace">
+                            <span class="calc-field-unit">e.g., 5:13</span>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-4xl font-bold"><span id="speedMph"></span></p>
-                        <p class="text-sm font-medium text-muted-foreground mt-1">mph</p>
+
+                    <label class="calc-label mt-5">Quick paces</label>
+                    <div class="calc-quick-targets" role="group" aria-label="Quick target paces">
+                        <button type="button" class="calc-quick-btn" onclick="setPace('5:13')">5:13 / km</button>
+                        <button type="button" class="calc-quick-btn" onclick="setPace('5:30')">5:30 / km</button>
+                        <button type="button" class="calc-quick-btn" onclick="setPace('5:00')">5:00 / km</button>
+                        <button type="button" class="calc-quick-btn" onclick="setPace('4:45')">4:45 / km</button>
+                    </div>
+
+                    <button type="button" onclick="convertPace()" class="btn btn-primary mt-5" style="width: 100%;">
+                        Calculate Treadmill Speed
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="calc-result">
+                    <p class="calc-label">Set your treadmill to</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-4);">
+                        <div>
+                            <div class="calc-result-num" id="speedKph" style="font-size: clamp(48px, 7vw, 80px);">11.5</div>
+                            <div class="calc-result-unit">km / h</div>
+                        </div>
+                        <div>
+                            <div class="calc-result-num" id="speedMph" style="font-size: clamp(48px, 7vw, 80px);">7.1</div>
+                            <div class="calc-result-unit">mph</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--space-5); padding: var(--space-4); background: var(--color-bg); border-radius: var(--radius-2); border-left: 3px solid var(--color-accent);">
+                        <div style="font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-text-muted); font-weight: 600; margin-bottom: 6px;">Recommended incline</div>
+                        <div style="font-size: var(--text-h4); font-weight: 700;">1.0% to 1.5%</div>
                     </div>
                 </div>
-                <div class="mt-6 pt-4 border-t border-border">
-                    <p class="text-sm font-medium bg-secondary py-2 px-3 rounded inline-block">
-                        Recommended Incline: 1.0% to 1.5%
-                    </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL EXPERIENCE -->
+    <section class="section-experience">
+        <div class="container-narrow">
+            <p class="eyebrow">Real experience</p>
+            <h2 class="mt-3">Why treadmills feel different.</h2>
+            <p class="text-muted mt-2" style="max-width: 560px;">Setting the belt to 11.5 km/h felt easier than the same pace on asphalt.</p>
+
+            <div class="mt-6">
+                <article class="exp-block">
+                    <div class="exp-block-km">Air</div>
+                    <h3>Air resistance factor.</h3>
+                    <p>Outdoors, your body expends energy pushing through air. On a treadmill, you stay stationary in a climate-controlled room. To replicate the outdoor load, set the incline to at least 1.0%.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">Belt</div>
+                    <h3>Belt assistance.</h3>
+                    <p>The motorized belt actively pulls your leg backward. If you do more than 30% of your 12-week training on a flat treadmill, your hamstrings will be undertrained for real road impact on race day.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">70/30</div>
+                    <h3>Use it for tempo + recovery.</h3>
+                    <p>Use the treadmill for tempo runs and recovery runs, but prioritize outdoor long runs for race-specific preparation.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED TOOLS -->
+    <section class="section-tools">
+        <div class="container">
+            <p class="eyebrow">More tools</p>
+            <h2 class="mt-3">Pair this with race-day planning.</h2>
+            <ol class="tool-list">
+                <li class="tool-item">
+                    <div class="tool-num">01</div>
+                    <div><h3>Pace Calculator</h3><p>Calculate your exact splits per km / mile.</p></div>
+                    <a href="/" class="tool-link">Calculate →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">02</div>
+                    <div><h3>Training Plan</h3><p>12-week fragmented-time plan for busy runners.</p></div>
+                    <a href="/training-plan" class="tool-link">Build plan →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">03</div>
+                    <div><h3>Gel Timing</h3><p>Plan your race-day fueling based on finish time.</p></div>
+                    <a href="/gel-nutrition" class="tool-link">Plan gels →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">04</div>
+                    <div><h3>HR Zones</h3><p>Train by effort using Karvonen or Fox formula.</p></div>
+                    <a href="/heart-rate-zones" class="tool-link">Calculate zones →</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-7) 0 var(--space-6); background: var(--color-bg);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="nav-logo">
+                        <span class="nav-logo-mark">18</span>
+                        <span>pace</span>
+                    </div>
+                    <p style="font-size: var(--text-small); color: var(--color-text-muted); margin-top: var(--space-3); max-width: 360px; line-height: 1.5;">Built by an actual sub-1:50 finisher.<br>Run smarter. Race better.</p>
                 </div>
+                <nav aria-label="Footer" style="display: flex; gap: var(--space-7); flex-wrap: wrap;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Tools</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="/" class="nav-link">Pace Calculator</a></li>
+                            <li><a href="/training-plan" class="nav-link">Training Plan</a></li>
+                            <li><a href="/gel-nutrition" class="nav-link">Gel Timing</a></li>
+                            <!-- /treadmill-pace self-link removed -->
+                            <li><a href="/heart-rate-zones" class="nav-link">HR Zones</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-
-        <!-- E-E-A-T Real Experience -->
-        <div class="card p-6 space-y-4">
-            <h2 class="text-xl font-bold tracking-tight">Why Treadmills Feel Different (My 1:50 Experience)</h2>
-            <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>When training for my sub-1:50 half marathon, rainy days forced me onto the treadmill. I quickly realized that setting the belt to 11.5 km/h (exactly 5:13/km pace) felt significantly easier than holding that exact same pace on the asphalt.</p>
-                <p><strong>The Air Resistance Factor:</strong> Outdoors, your body expends energy pushing through the air. On a treadmill, you stay stationary in a climate-controlled room. To replicate the outdoor cardiovascular load for a sub-1:50 pace, you must set the treadmill incline to at least <strong>1.0%</strong>.</p>
-                <p><strong>Belt Assistance:</strong> The motorized belt actively pulls your leg backward, slightly altering your natural biomechanics. If you do more than 30% of your 12-week training block on a flat treadmill, your hamstrings will be severely undertrained for the real road impact on race day.</p>
-                <p><strong>Pro Tip:</strong> Use the treadmill for tempo runs and recovery runs, but prioritize outdoor long runs for race-specific preparation.</p>
+            <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: var(--text-tiny); color: var(--color-text-muted);">
+                <span>© 2026 18pace · Free forever</span>
+                <span>Made for runners chasing a number.</span>
             </div>
-        </div>
-
-        <!-- Internal Links -->
-        <div class="text-center pt-4 border-t border-border space-y-2">
-            <div class="flex flex-col md:flex-row gap-3 justify-center">
-                <a href="/" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    ← Back to Pace Calculator
-                </a>
-                <a href="/training-plan" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    12-Week Training Plan →
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-        <!-- Other Tools (Internal Links) -->
-        <div class="text-center pt-8 border-t border-border">
-            <p class="text-sm font-medium text-muted-foreground mb-4">Other 18pace Tools</p>
-            <div class="flex flex-wrap gap-2 justify-center">
-                <a href="/" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Pace Calculator</a>
-                <a href="/training-plan" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">12-Week Training Plan</a>
-                <a href="/gel-nutrition" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Gel & Nutrition</a>
-                <a href="/treadmill-pace" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Treadmill Pace</a>
-                <a href="/heart-rate-zones" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">HR Zones</a>
-            </div>
-        </div>
-    <!-- Footer -->
-    <footer class="border-t border-border py-8 mt-12">
-        <div class="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
-            Built by an actual sub-1:50 runner · © 2026 18pace
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS -->
     <script>
-        function convertPace() {
-            const paceInput = document.getElementById('targetPace').value;
-            const parts = paceInput.split(':');
-            if(parts.length !== 2) return;
-            const mins = parseInt(parts[0]);
-            const secs = parseInt(parts[1]);
-            const totalMinsPerKm = mins + (secs / 60);
+    function convertPace() {
+        const paceInput = document.getElementById('targetPace').value;
+        const parts = paceInput.split(':');
+        if (parts.length !== 2) return;
+        const mins = parseInt(parts[0]);
+        const secs = parseInt(parts[1]);
+        const totalMinsPerKm = mins + (secs / 60);
 
-            const kph = 60 / totalMinsPerKm;
-            const mph = kph / 1.60934;
+        const kph = 60 / totalMinsPerKm;
+        const mph = kph / 1.60934;
 
-            document.getElementById('speedKph').textContent = kph.toFixed(1);
-            document.getElementById('speedMph').textContent = mph.toFixed(1);
-            document.getElementById('result').classList.remove('hidden');
-        }
-        // Initialize with default value
+        document.getElementById('speedKph').textContent = kph.toFixed(1);
+        document.getElementById('speedMph').textContent = mph.toFixed(1);
+    }
+
+    function setPace(p) {
+        document.getElementById('targetPace').value = p;
         convertPace();
+    }
+
+    convertPace();
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        menu.classList.toggle('is-open');
+        const btn = document.querySelector('.nav-mobile');
+        if (btn) btn.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    }
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- GA4 -->
     <div style="display:none">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-W24L7KH2YL');
     </script>
     </div>

@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ============================ -->
-    <!-- SEO TDK (Title / Description / Keywords) -->
-    <!-- ============================ -->
+    <!-- SEO TDK -->
     <title>1:50 Half Marathon Pace Calculator — Sub-1:50 Split Chart & Strategy | 18pace</title>
     <meta name="description" content="Free 1:50 half marathon pace calculator. Get exact per-km splits, mile splits, and a printable pace band for sub-1:50 finishers. Built by an actual sub-1:50 runner with real race-day data.">
     <meta name="keywords" content="1:50 half marathon pace, sub 1:50 half marathon, half marathon pace calculator, half marathon split chart, 1 hour 50 min half marathon, printable pace band">
@@ -21,15 +19,11 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://18pace.com/">
 
-    <!-- ============================ -->
-    <!-- GEO Optimization: llms.txt / robots.txt hints -->
-    <!-- ============================ -->
+    <!-- GEO -->
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="ai-content-declaration" content="ai-assisted-content">
 
-    <!-- ============================ -->
-    <!-- JSON-LD Structured Data (Schema.org) -->
-    <!-- ============================ -->
+    <!-- JSON-LD WebApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -52,7 +46,7 @@
     }
     </script>
 
-    <!-- FAQ Schema for GEO -->
+    <!-- JSON-LD FAQ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -78,449 +72,541 @@
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        border: "hsl(214.3 31.8% 91.4%)",
-                        input: "hsl(214.3 31.8% 91.4%)",
-                        ring: "hsl(222.2 84% 4.9%)",
-                        background: "hsl(0 0% 100%)",
-                        foreground: "hsl(222.2 84% 4.9%)",
-                        primary: {
-                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(210 40% 96.1%)",
-                            foreground: "hsl(222.2 47.4% 11.2%)",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(210 40% 96.1%)",
-                            foreground: "hsl(215.4 16.3% 46.9%)",
-                        },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <!-- Design System -->
+    <link rel="stylesheet" href="/assets/design-system.css">
 
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-        .gradient-bg { background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%); }
-        .pulse-dot { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-background text-foreground antialiased">
-    <!-- ============================ -->
-    <!-- HEADER (Shadcn UI 风格：干净、极简) -->
-    <!-- ============================ -->
-    <header class="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                    18
-                </div>
-                <span class="font-bold text-lg">18pace</span>
-            </div>
-            <nav class="hidden md:flex items-center gap-6 text-sm">
-                <a href="#calculator" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
-                <a href="#strategy" class="text-muted-foreground hover:text-foreground transition-colors">Strategy</a>
-                <a href="#experience" class="text-muted-foreground hover:text-foreground transition-colors">Real Experience</a>
-                <a href="#faq" class="text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
-            </nav>
-        </div>
-    </header>
+<body>
 
-    <!-- ============================ -->
-    <!-- HERO SECTION -->
-    <!-- ============================ -->
-    <section class="gradient-bg border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
-                    <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
-                    Built by an actual sub-1:50 finisher
-                </div>
+    <a href="#calculator" class="skip-link">Skip to calculator</a>
 
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-                    The exact pace you need to break 1:50 in the half marathon.
-                </h1>
-
-                <p class="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                    No more guessing. Get precise per-kilometer and per-mile splits, a printable pace band, and a race-day strategy from someone who has actually run 1:50.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="#calculator" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
-                        Calculate My Splits
-                    </a>
-                    <a href="#experience" class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-border bg-background hover:bg-secondary transition-colors font-medium">
-                        Read the Real Race Story
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ -->
-    <!-- CALCULATOR SECTION (核心功能) -->
-    <!-- ============================ -->
-    <section id="calculator" class="py-20 border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        1:50 Half Marathon Pace Calculator
-                    </h2>
-                    <p class="text-muted-foreground">
-                        Enter your target finish time to see exact splits.
-                    </p>
-                </div>
-
-                <div class="rounded-lg border border-border bg-card p-8 shadow-sm">
-                    <div class="space-y-6">
-                        <!-- 时间输入 -->
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Target Finish Time</label>
-                            <div class="flex gap-3">
-                                <div class="flex-1">
-                                    <input type="number" id="hours" value="1" min="0" max="5"
-                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-                                    <p class="text-xs text-muted-foreground mt-1">Hours</p>
-                                </div>
-                                <div class="flex-1">
-                                    <input type="number" id="minutes" value="50" min="0" max="59"
-                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-                                    <p class="text-xs text-muted-foreground mt-1">Minutes</p>
-                                </div>
-                                <div class="flex-1">
-                                    <input type="number" id="seconds" value="0" min="0" max="59"
-                                        class="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-                                    <p class="text-xs text-muted-foreground mt-1">Seconds</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 快捷选择 -->
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Quick Targets</label>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="setTime(1,30,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 1:30</button>
-                                <button onclick="setTime(1,40,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 1:40</button>
-                                <button onclick="setTime(1,50,0)" class="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm hover:opacity-90">Sub 1:50</button>
-                                <button onclick="setTime(2,0,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 2:00</button>
-                                <button onclick="setTime(2,10,0)" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover:opacity-80">Sub 2:10</button>
-                            </div>
-                        </div>
-
-                        <!-- 计算结果 -->
-                        <div id="results" class="pt-6 border-t border-border">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div class="rounded-md bg-secondary p-4">
-                                    <p class="text-xs text-muted-foreground mb-1">Per Kilometer</p>
-                                    <p class="text-2xl font-bold" id="pace-km">5:13</p>
-                                </div>
-                                <div class="rounded-md bg-secondary p-4">
-                                    <p class="text-xs text-muted-foreground mb-1">Per Mile</p>
-                                    <p class="text-2xl font-bold" id="pace-mile">8:24</p>
-                                </div>
-                                <div class="rounded-md bg-secondary p-4">
-                                    <p class="text-xs text-muted-foreground mb-1">Per 5K Split</p>
-                                    <p class="text-2xl font-bold" id="pace-5k">26:05</p>
-                                </div>
-                                <div class="rounded-md bg-secondary p-4">
-                                    <p class="text-xs text-muted-foreground mb-1">Speed (km/h)</p>
-                                    <p class="text-2xl font-bold" id="speed-kmh">11.50</p>
-                                </div>
-                            </div>
-
-                            <button onclick="printPaceBand()" class="mt-6 w-full px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
-                                Print My Pace Band →
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ -->
-    <!-- REAL EXPERIENCE SECTION (信息增量) -->
-    <!-- ============================ -->
-    <section id="experience" class="py-20 border-b border-border bg-secondary/30">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    What 1:50 actually feels like (from someone who ran it)
-                </h2>
-                <p class="text-lg text-muted-foreground mb-8">
-                    A calculator can give you splits. It can't tell you about the wall at km 16, or the moment your legs lock up at km 19. Here's the real race-day data.
-                </p>
-
-                <div class="space-y-6">
-                    <div class="rounded-lg border border-border bg-card p-6">
-                        <h3 class="text-xl font-semibold mb-3">The first 10K: Holding back is hard</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Every instinct tells you to go out at 5:00/km. Don't. The first 10K should feel embarrassingly easy at 5:20-5:30/km. If you're not holding back, you'll pay for it at km 17.
-                        </p>
-                    </div>
-
-                    <div class="rounded-lg border border-border bg-card p-6">
-                        <h3 class="text-xl font-semibold mb-3">The 15-18K stretch: The wall is real</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            This is where most people break. Your gel timing matters: take your first gel at km 8-9, second at km 13-14. Skip the gel and your pace will drop 30+ seconds in the final 5K.
-                        </p>
-                    </div>
-
-                    <div class="rounded-lg border border-border bg-card p-6">
-                        <h3 class="text-xl font-semibold mb-3">The final 3K: Survive, then sprint</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            At km 18, you won't want to speed up. Your brain will lie to you. Hold your target pace. If you have anything left in the final 500m, use it. The clock rewards every second under 1:50.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ -->
-    <!-- STRATEGY SECTION -->
-    <!-- ============================ -->
-    <section id="strategy" class="py-20 border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    The 1:50 race-day strategy
-                </h2>
-                <p class="text-lg text-muted-foreground mb-12">
-                    A simple, repeatable plan. Tested in actual sub-1:50 finishes.
-                </p>
-
-                <div class="space-y-4">
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">1</div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-1">Negative split the first half</h3>
-                            <p class="text-muted-foreground">Start at 5:20-5:30/km for the first 10K. Pick up to 5:10/km for the second half.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">2</div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-1">Gel at km 8-9 and km 13-14</h3>
-                            <p class="text-muted-foreground">Don't wait until you feel hungry. Your glycogen is depleting long before your stomach notices.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">3</div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-1">Water at every station after km 7</h3>
-                            <p class="text-muted-foreground">Even if you're not thirsty. Dehydration in the back half is what kills your pace.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold">4</div>
-                        <div>
-                            <h3 class="font-semibold text-lg mb-1">Hold target pace from km 18 to 20</h3>
-                            <p class="text-muted-foreground">The hardest 2K of your life. Stay disciplined. Sprint the final 1.1K.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ -->
-    <!-- FAQ SECTION (SEO + GEO 友好) -->
-    <!-- ============================ -->
-    <section id="faq" class="py-20 border-t border-border">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">
-                Frequently asked questions
-            </h2>
-
-            <div class="space-y-4">
-                <details class="group rounded-lg border border-border bg-card p-6">
-                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
-                        What pace do I need for a 1:50 half marathon?
-                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
-                    </summary>
-                    <p class="mt-4 text-muted-foreground">
-                        You need to average approximately <strong>5:13 per kilometer (8:24 per mile)</strong> to finish a half marathon in 1 hour 50 minutes.
-                    </p>
-                </details>
-
-                <details class="group rounded-lg border border-border bg-card p-6">
-                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
-                        Is 1:50 a good half marathon time?
-                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
-                    </summary>
-                    <p class="mt-4 text-muted-foreground">
-                        1:50 is a strong amateur time. It places most finishers in the top 10-15% of their age group globally, and requires consistent training over 3-6 months.
-                    </p>
-                </details>
-
-                <details class="group rounded-lg border border-border bg-card p-6">
-                    <summary class="flex justify-between items-center cursor-pointer font-medium list-none">
-                        How many miles is a 1:50 half marathon?
-                        <span class="text-muted-foreground group-open:rotate-180 transition-transform">↓</span>
-                    </summary>
-                    <p class="mt-4 text-muted-foreground">
-                        A half marathon is 13.1 miles (21.1 km) regardless of finish time.
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ -->
-    <!-- INTERNAL LINK: Training Plan + Gel Nutrition -->
-    <!-- ============================ -->
-    <section class="py-16 border-t border-border bg-secondary/30">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">
-                Need a structured 12-week schedule?
-            </h2>
-            <p class="text-muted-foreground mb-6">
-                Built from an actual sub-1:50 training log using a "Fragmented Time" strategy for busy runners.
-            </p>
-            <a href="/training-plan" class="inline-flex items-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
-                Try the Training Plan Generator →
+    <!-- ============================== -->
+    <!-- 01 · NAVIGATION                  -->
+    <!-- ============================== -->
+    <nav class="nav" aria-label="Main">
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo" aria-label="18pace home">
+                <span class="nav-logo-mark">18</span>
+                <span>pace</span>
             </a>
-            <p class="text-xs text-muted-foreground mt-4">
-                Free · No signup · 12 weeks from base to race day
-            </p>
 
-            <!-- Second CTA: Gel Nutrition -->
-            <div class="mt-10 pt-8 border-t border-border">
-                <h3 class="text-xl font-semibold mb-2">Need race-day gel timing?</h3>
-                <p class="text-sm text-muted-foreground mb-4">
-                    Calculate when to take energy gels based on your finish time and body weight.
-                </p>
-                <a href="/gel-nutrition" class="inline-flex items-center px-5 py-2 rounded-md border border-border bg-background hover:bg-secondary transition-colors text-sm font-medium">
-                    Get My Gel Timeline →
-                </a>
+            <div class="nav-links" role="navigation">
+                <a href="#calculator" class="nav-link">Pace Calculator</a>
+                <a href="#timeline" class="nav-link">Race Day</a>
+                <a href="/training-plan" class="nav-link">Training</a>
+                <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
             </div>
 
-            <!-- Third CTA: Treadmill Pace Converter -->
-            <div class="mt-8 pt-8 border-t border-border">
-                <h3 class="text-xl font-semibold mb-2">Indoor training?</h3>
-                <p class="text-sm text-muted-foreground mb-4">
-                    Convert your outdoor pace to treadmill speed with 1-2% incline adjustments.
-                </p>
-                <a href="/treadmill-pace" class="inline-flex items-center px-5 py-2 rounded-md border border-border bg-background hover:bg-secondary transition-colors text-sm font-medium">
-                    Try Treadmill Converter →
-                </a>
-            </div>
+            <a href="/training-plan" class="nav-cta">
+                Build My Race Plan
+                <span class="nav-cta-arrow">→</span>
+            </a>
 
-            <!-- Fourth CTA: Heart Rate Zones -->
-            <div class="mt-8 pt-8 border-t border-border">
-                <h3 class="text-xl font-semibold mb-2">Training by heart rate?</h3>
-                <p class="text-sm text-muted-foreground mb-4">
-                    Calculate your 5 training zones using Karvonen or Fox formula.
-                </p>
-                <a href="/heart-rate-zones" class="inline-flex items-center px-5 py-2 rounded-md border border-border bg-background hover:bg-secondary transition-colors text-sm font-medium">
-                    Get My Heart Rate Zones →
-                </a>
+            <button class="nav-mobile" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="14" x2="17" y2="14"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+            <a href="/" class="nav-link">Pace Calculator</a>
+            <a href="#calculator" class="nav-link" onclick="toggleMobileMenu()">Calculate</a>
+            <a href="#timeline" class="nav-link" onclick="toggleMobileMenu()">Race Timeline</a>
+            <a href="/training-plan" class="nav-link">Training</a>
+            <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+            <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+            <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
+            <a href="/training-plan" class="btn btn-primary mt-3" onclick="toggleMobileMenu()">Build My Race Plan →</a>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- 02 · HERO                        -->
+    <!-- ============================== -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow">BUILT BY A SUB-1:50 FINISHER</p>
+
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1 class="text-display hero-headline">
+                        Break 1:50.<br>
+                        <span style="color: var(--color-text-muted)">Know your pace.</span>
+                    </h1>
+                    <p class="hero-sub">
+                        The exact splits, checkpoints, and race-day strategy you need to run a sub-1:50 half marathon.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#calculator" class="btn btn-primary">
+                            Calculate My Pace
+                            <span class="arrow">→</span>
+                        </a>
+                        <a href="#timeline" class="btn btn-text">
+                            See Race Day
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <aside class="hero-pace-panel" aria-label="Current target pace">
+                    <p class="hero-pace-label">Your target pace</p>
+                    <div class="hero-pace-number" id="hero-pace">5:13</div>
+                    <p class="hero-pace-unit">per kilometer</p>
+                    <div class="hero-pace-secondary">
+                        <div class="hero-pace-secondary-item">
+                            <span class="num" id="hero-mile">8:24</span>
+                            <span class="lbl">/ mile</span>
+                        </div>
+                        <div class="hero-pace-secondary-item">
+                            <span class="num" id="hero-speed">11.50</span>
+                            <span class="lbl">km / h</span>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
 
-    <!-- ============================ -->
-    <!-- FOOTER -->
-    <!-- ============================ -->
-    <footer class="border-t border-border py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
-                        18
+    <!-- ============================== -->
+    <!-- 03 · PACE CALCULATOR             -->
+    <!-- ============================== -->
+    <section class="calc" id="calculator">
+        <div class="container">
+            <div class="calc-grid">
+                <!-- Input column -->
+                <div class="calc-input-block">
+                    <label class="calc-label" for="hours">Target finish time</label>
+                    <div class="calc-inputs">
+                        <div class="calc-field">
+                            <input type="number" id="hours" value="1" min="0" max="5" aria-label="Hours">
+                            <span class="calc-field-unit">Hours</span>
+                        </div>
+                        <div class="calc-field">
+                            <input type="number" id="minutes" value="50" min="0" max="59" aria-label="Minutes">
+                            <span class="calc-field-unit">Minutes</span>
+                        </div>
+                        <div class="calc-field">
+                            <input type="number" id="seconds" value="0" min="0" max="59" aria-label="Seconds">
+                            <span class="calc-field-unit">Seconds</span>
+                        </div>
                     </div>
-                    <span class="font-semibold">18pace</span>
+
+                    <label class="calc-label">Quick targets</label>
+                    <div class="calc-quick-targets" role="group" aria-label="Quick target times">
+                        <button type="button" class="calc-quick-btn" data-time="1:30:0" onclick="setTime(1,30,0)">1:30</button>
+                        <button type="button" class="calc-quick-btn" data-time="1:40:0" onclick="setTime(1,40,0)">1:40</button>
+                        <button type="button" class="calc-quick-btn is-active" data-time="1:50:0" onclick="setTime(1,50,0)">1:50</button>
+                        <button type="button" class="calc-quick-btn" data-time="2:00:0" onclick="setTime(2,0,0)">2:00</button>
+                        <button type="button" class="calc-quick-btn" data-time="2:10:0" onclick="setTime(2,10,0)">2:10</button>
+                    </div>
                 </div>
-                <p class="text-sm text-muted-foreground">
-                    Built by an actual sub-1:50 runner. © 2026
-                </p>
+
+                <!-- Result column -->
+                <div class="calc-result" aria-live="polite">
+                    <p class="calc-label">Your pace</p>
+                    <div class="calc-result-main">
+                        <span class="calc-result-num" id="pace-km">5:13</span>
+                        <span class="calc-result-unit">per kilometer</span>
+                    </div>
+                    <div class="calc-result-grid">
+                        <div class="calc-result-item">
+                            <span class="num" id="pace-mile">8:24</span>
+                            <span class="lbl">/ mile</span>
+                        </div>
+                        <div class="calc-result-item">
+                            <span class="num" id="speed-kmh">11.50</span>
+                            <span class="lbl">km / h</span>
+                        </div>
+                        <div class="calc-result-item">
+                            <span class="num" id="pace-5k">26:05</span>
+                            <span class="lbl">/ 5K split</span>
+                        </div>
+                    </div>
+                    <div class="calc-print">
+                        <button type="button" onclick="printPaceBand()" class="btn btn-outline">
+                            Print My Pace Band
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 04 · RACE TIMELINE               -->
+    <!-- ============================== -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <p class="eyebrow">Your race · 21.1 KM · 5 checkpoints</p>
+            <h2 class="mt-3">Hold back. Settle in. Then race.</h2>
+
+            <div class="timeline" id="race-timeline">
+                <div class="timeline-stop" data-km="0">
+                    <div class="timeline-stop-label">0 KM</div>
+                    <div class="timeline-stop-time" data-time>0:00</div>
+                    <div class="timeline-stop-action">Start</div>
+                </div>
+                <div class="timeline-stop" data-km="5">
+                    <div class="timeline-stop-label">5 KM</div>
+                    <div class="timeline-stop-time" data-time>26:05</div>
+                    <div class="timeline-stop-action">Hold back</div>
+                </div>
+                <div class="timeline-stop" data-km="10">
+                    <div class="timeline-stop-label">10 KM</div>
+                    <div class="timeline-stop-time" data-time>52:08</div>
+                    <div class="timeline-stop-action">Settle in</div>
+                </div>
+                <div class="timeline-stop" data-km="15">
+                    <div class="timeline-stop-label">15 KM</div>
+                    <div class="timeline-stop-time" data-time>1:18:12</div>
+                    <div class="timeline-stop-action">Stay steady</div>
+                </div>
+                <div class="timeline-stop" data-km="20">
+                    <div class="timeline-stop-label">20 KM</div>
+                    <div class="timeline-stop-time" data-time>1:44:16</div>
+                    <div class="timeline-stop-action">Hold on</div>
+                </div>
+                <div class="timeline-stop is-finish" data-km="21.1">
+                    <div class="timeline-stop-label">21.1 KM</div>
+                    <div class="timeline-stop-time" data-time>1:50:00</div>
+                    <div class="timeline-stop-action">Finish</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 05 · THE PLAN                      -->
+    <!-- ============================== -->
+    <section class="section-plan" id="plan">
+        <div class="container">
+            <p class="eyebrow">The plan</p>
+            <h2 class="mt-3">The race has three parts.</h2>
+            <p class="text-muted mt-2" style="max-width: 640px;">A sub-1:50 isn't run at one pace. It's run in three.</p>
+
+            <div class="plan-grid">
+                <article class="plan-stage">
+                    <div class="plan-stage-num">01</div>
+                    <div class="plan-stage-km">0 – 10 KM</div>
+                    <h3 class="plan-stage-title">Hold back.</h3>
+                    <p>Your biggest mistake is going out too fast. 5:20–5:30/km feels embarrassingly slow at the start. That's intentional.</p>
+                    <span class="plan-stage-target">Target 5:20–5:30 / km</span>
+                </article>
+
+                <article class="plan-stage">
+                    <div class="plan-stage-num">02</div>
+                    <div class="plan-stage-km">10 – 18 KM</div>
+                    <h3 class="plan-stage-title">Settle in.</h3>
+                    <p>This is where patience pays. Stay close to your target pace. Save energy for the wall at 17.</p>
+                    <span class="plan-stage-target">Target 5:13 / km</span>
+                </article>
+
+                <article class="plan-stage">
+                    <div class="plan-stage-num">03</div>
+                    <div class="plan-stage-km">18 – 21.1 KM</div>
+                    <h3 class="plan-stage-title">Now race.</h3>
+                    <p>If you still have something left at 18, this is where you use it. The clock rewards every second under 1:50.</p>
+                    <span class="plan-stage-target">Hold 5:13 · Finish strong</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 06 · REAL EXPERIENCE                -->
+    <!-- ============================== -->
+    <section class="section-experience" id="experience">
+        <div class="container-narrow">
+            <p class="eyebrow">Real experience</p>
+            <h2 class="mt-3">What 1:50 actually feels like.</h2>
+            <p class="text-muted mt-2" style="max-width: 560px;">Advice from someone who has actually run it.</p>
+
+            <div class="mt-6">
+                <article class="exp-block">
+                    <div class="exp-block-km">10 KM</div>
+                    <h3>Holding back is hard.</h3>
+                    <p>At the start, 5:20–5:30/km can feel frustratingly slow. That's intentional. The first 10K is a controlled warmup disguised as a race.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">15 – 18 KM</div>
+                    <h3>The wall is real.</h3>
+                    <p>Your job here isn't to get faster. It's to keep moving efficiently. Gel timing matters here. Skip it and you'll pay.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">18 – 21.1 KM</div>
+                    <h3>Now you race.</h3>
+                    <p>If you've done everything right, the final 3K is where you earn the finish. Hold your pace through 20. Sprint the last 1.1 if you can.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 07 · RACE DAY CHECKLIST              -->
+    <!-- ============================== -->
+    <section class="section-raceday" id="raceday">
+        <div class="container">
+            <p class="eyebrow">Race day</p>
+            <h2 class="mt-3">Your race-day checklist.</h2>
+            <p class="text-muted mt-2" style="max-width: 640px;">Practical starting points. Adjust based on your training, weather, race conditions, and individual tolerance.</p>
+
+            <div class="raceday-list">
+                <div class="raceday-row">
+                    <div class="raceday-row-label">Pace</div>
+                    <div class="raceday-row-value">5:13 / km</div>
+                    <div class="raceday-row-detail">Hold this from km 5 to km 20. Trust the math, not your legs.</div>
+                </div>
+                <div class="raceday-row">
+                    <div class="raceday-row-label">Fuel</div>
+                    <div class="raceday-row-value">Gel · km 8–9</div>
+                    <div class="raceday-row-detail">Take your first gel before you feel tired. Don't wait for hunger.</div>
+                </div>
+                <div class="raceday-row">
+                    <div class="raceday-row-label"></div>
+                    <div class="raceday-row-value">Gel · km 13–14</div>
+                    <div class="raceday-row-detail">Take your second gel right before the wall at km 16. This is critical.</div>
+                </div>
+                <div class="raceday-row">
+                    <div class="raceday-row-label">Water</div>
+                    <div class="raceday-row-value">Every aid station</div>
+                    <div class="raceday-row-detail">Use stations regularly based on conditions and personal needs. Don't wait until thirsty.</div>
+                </div>
+                <div class="raceday-row">
+                    <div class="raceday-row-label">Final 3K</div>
+                    <div class="raceday-row-value">Hold · Then race</div>
+                    <div class="raceday-row-detail">Hold target pace through km 18–20. Sprint the final 1.1K if you have the energy.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 08 · MORE TOOLS                      -->
+    <!-- ============================== -->
+    <section class="section-tools" id="tools">
+        <div class="container">
+            <p class="eyebrow">More tools</p>
+            <h2 class="mt-3">More tools for race day.</h2>
+
+            <ol class="tool-list">
+                <li class="tool-item">
+                    <div class="tool-num">01</div>
+                    <div>
+                        <h3>Training Plan</h3>
+                        <p>Build a structured 12-week plan based on your fragmented time.</p>
+                    </div>
+                    <a href="/training-plan" class="tool-link">Build your plan →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">02</div>
+                    <div>
+                        <h3>Gel Timing</h3>
+                        <p>Plan your race-day fueling based on finish time and body weight.</p>
+                    </div>
+                    <a href="/gel-nutrition" class="tool-link">Plan your gels →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">03</div>
+                    <div>
+                        <h3>Treadmill Converter</h3>
+                        <p>Convert outdoor pace to treadmill speed with 1–2% incline.</p>
+                    </div>
+                    <a href="/treadmill-pace" class="tool-link">Convert pace →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">04</div>
+                    <div>
+                        <h3>Heart Rate Zones</h3>
+                        <p>Train by effort instead of pace. Karvonen or Fox formula.</p>
+                    </div>
+                    <a href="/heart-rate-zones" class="tool-link">Calculate zones →</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 09 · FINAL CTA                        -->
+    <!-- ============================== -->
+    <section class="section-cta">
+        <div class="container-narrow">
+            <p class="eyebrow" style="color: var(--color-text-subtle);">Ready to break 1:50?</p>
+            <h2 class="mt-3">Know exactly how to run it.</h2>
+            <p class="mt-3">Build your race plan. Get exact splits. Print your pace band. All free, no signup.</p>
+            <div class="section-cta-actions">
+                <a href="/training-plan" class="btn btn-primary">Build My Race Plan <span class="arrow">→</span></a>
+                <a href="#calculator" class="btn btn-outline">Calculate My Pace <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER                                -->
+    <!-- ============================== -->
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-7) 0 var(--space-6); background: var(--color-bg);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="nav-logo">
+                        <span class="nav-logo-mark">18</span>
+                        <span>pace</span>
+                    </div>
+                    <p style="font-size: var(--text-small); color: var(--color-text-muted); margin-top: var(--space-3); max-width: 360px; line-height: 1.5;">
+                        Built by an actual sub-1:50 finisher.<br>
+                        Run smarter. Race better.
+                    </p>
+                </div>
+
+                <nav aria-label="Footer" style="display: flex; gap: var(--space-7); flex-wrap: wrap;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Tools</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="/" class="nav-link">Pace Calculator</a></li>
+                            <li><a href="/training-plan" class="nav-link">Training Plan</a></li>
+                            <li><a href="/gel-nutrition" class="nav-link">Gel Timing</a></li>
+                            <li><a href="/treadmill-pace" class="nav-link">Treadmill Pace</a></li>
+                            <li><a href="/heart-rate-zones" class="nav-link">HR Zones</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Race Day</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="#calculator" class="nav-link">Calculate Splits</a></li>
+                            <li><a href="#timeline" class="nav-link">Race Timeline</a></li>
+                            <li><a href="/gel-nutrition" class="nav-link">Nutrition Plan</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: var(--text-tiny); color: var(--color-text-muted);">
+                <span>© 2026 18pace · Free forever</span>
+                <span>Made for runners chasing a number.</span>
             </div>
         </div>
     </footer>
 
-    <!-- ============================ -->
-    <!-- Calculator JavaScript -->
-    <!-- ============================ -->
+    <!-- ============================== -->
+    <!-- Calculator JavaScript             -->
+    <!-- ============================== -->
     <script>
-        function calculatePace() {
-            const h = parseInt(document.getElementById('hours').value) || 0;
-            const m = parseInt(document.getElementById('minutes').value) || 0;
-            const s = parseInt(document.getElementById('seconds').value) || 0;
+    function calculatePace() {
+        const h = parseInt(document.getElementById('hours').value) || 0;
+        const m = parseInt(document.getElementById('minutes').value) || 0;
+        const s = parseInt(document.getElementById('seconds').value) || 0;
 
-            const totalSeconds = h * 3600 + m * 60 + s;
-            const totalMinutes = totalSeconds / 60;
+        const totalSeconds = h * 3600 + m * 60 + s;
+        const pacePerKm = totalSeconds / 21.1;
+        const pacePerMile = totalSeconds / 13.1;
+        const split5k = pacePerKm * 5;
+        const speedKmh = 21.1 / (totalSeconds / 3600);
 
-            // 21.1 km, 13.1 miles
-            const pacePerKm = totalSeconds / 21.1;
-            const pacePerMile = totalSeconds / 13.1;
-            const split5k = (pacePerKm * 5);
-            const speedKmh = 21.1 / (totalSeconds / 3600);
+        const km = formatTime(pacePerKm);
+        const mi = formatTime(pacePerMile);
+        const fiveK = formatTime(split5k);
 
-            document.getElementById('pace-km').textContent = formatTime(pacePerKm);
-            document.getElementById('pace-mile').textContent = formatTime(pacePerMile);
-            document.getElementById('pace-5k').textContent = formatTime(split5k);
-            document.getElementById('speed-kmh').textContent = speedKmh.toFixed(2);
-        }
+        document.getElementById('pace-km').textContent = km;
+        document.getElementById('pace-mile').textContent = mi;
+        document.getElementById('pace-5k').textContent = fiveK;
+        document.getElementById('speed-kmh').textContent = speedKmh.toFixed(2);
 
-        function formatTime(totalSeconds) {
-            const m = Math.floor(totalSeconds / 60);
-            const s = Math.round(totalSeconds % 60);
-            return `${m}:${s.toString().padStart(2, '0')}`;
-        }
+        // Sync hero pace panel
+        const heroPace = document.getElementById('hero-pace');
+        const heroMile = document.getElementById('hero-mile');
+        const heroSpeed = document.getElementById('hero-speed');
+        if (heroPace) heroPace.textContent = km;
+        if (heroMile) heroMile.textContent = mi;
+        if (heroSpeed) heroSpeed.textContent = speedKmh.toFixed(2);
 
-        function setTime(h, m, s) {
-            document.getElementById('hours').value = h;
-            document.getElementById('minutes').value = m;
-            document.getElementById('seconds').value = s;
-            calculatePace();
-        }
+        // Sync race timeline checkpoints
+        const stops = document.querySelectorAll('#race-timeline .timeline-stop');
+        stops.forEach(stop => {
+            const km = parseFloat(stop.dataset.km);
+            if (isNaN(km)) return;
+            const secondsAtKm = pacePerKm * km;
+            const t = stop.querySelector('[data-time]');
+            if (t) t.textContent = formatTimeLong(secondsAtKm);
+        });
+    }
 
-        function printPaceBand() {
-            window.print();
-        }
+    function formatTime(totalSeconds) {
+        const m = Math.floor(totalSeconds / 60);
+        const s = Math.round(totalSeconds % 60);
+        return `${m}:${s.toString().padStart(2, '0')}`;
+    }
 
-        // Auto-calculate on input change
-        ['hours', 'minutes', 'seconds'].forEach(id => {
-            document.getElementById(id).addEventListener('input', calculatePace);
+    function formatTimeLong(totalSeconds) {
+        const h = Math.floor(totalSeconds / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = Math.floor(totalSeconds % 60);
+        if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function setTime(h, m, s) {
+        document.getElementById('hours').value = h;
+        document.getElementById('minutes').value = m;
+        document.getElementById('seconds').value = s;
+
+        // Mark active quick target
+        const target = `${h}:${m}:${s}`;
+        document.querySelectorAll('.calc-quick-btn').forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.time === target);
         });
 
-        // Initial calculation
         calculatePace();
-    </script>
-<!-- Google tag (gtag.js) -->
-<div style="display:none">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    }
 
-  gtag('config', 'G-W24L7KH2YL');
-</script>
-</div>
+    function printPaceBand() {
+        window.print();
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        menu.classList.toggle('is-open');
+        const btn = document.querySelector('.nav-mobile');
+        if (btn) btn.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    }
+
+    // Subtle number transition (brief §26 micro-interaction)
+    function pulseUpdate(el) {
+        if (!el) return;
+        el.classList.add('is-updating');
+        setTimeout(() => el.classList.remove('is-updating'), 100);
+    }
+    const _origCalc = calculatePace;
+    calculatePace = function() {
+        ['pace-km', 'hero-pace', 'pace-mile', 'hero-mile', 'speed-kmh', 'hero-speed', 'pace-5k'].forEach(id => pulseUpdate(document.getElementById(id)));
+        _origCalc();
+    };
+
+    // Auto-recalculate on input
+    ['hours', 'minutes', 'seconds'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculatePace);
+    });
+
+    // Initial calculation
+    calculatePace();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <div style="display:none">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W24L7KH2YL');
+    </script>
+    </div>
 </body>
 </html>

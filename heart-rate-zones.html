@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO TDK -->
     <title>Heart Rate Zone Calculator for Half Marathon Training | 18pace</title>
     <meta name="description" content="Calculate your 5 training heart rate zones (Zone 1-5) using Karvonen formula or 220-age formula. Built by an actual sub-1:50 finisher for accurate half marathon training.">
     <meta name="keywords" content="heart rate zone calculator, Karvonen formula, 220 minus age formula, half marathon heart rate training, aerobic threshold heart rate">
     <meta name="author" content="18pace">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Heart Rate Zone Calculator | 18pace">
     <meta property="og:description" content="Calculate your 5 training heart rate zones using Karvonen formula.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://18pace.com/heart-rate-zones">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://18pace.com/heart-rate-zones">
 
-    <!-- GEO Optimization -->
+    <meta name="robots" content="index, follow">
     <meta name="ai-content-declaration" content="ai-assisted-content">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,263 +28,264 @@
         "url": "https://18pace.com/heart-rate-zones",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Person",
-            "name": "18pace Runner",
-            "description": "Sub-1:50 half marathon finisher, civil engineering student"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Person", "name": "18pace Runner", "description": "Sub-1:50 half marathon finisher" }
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        primary: '#0f172a',
-                        secondary: '#f1f5f9',
-                        border: '#e2e8f0'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/design-system.css">
 
-    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #fafafa;
-            color: #0f172a;
-            -webkit-font-smoothing: antialiased;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .btn-primary {
-            background: #0f172a;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: #1e293b; }
-        .input-field {
-            width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            outline: none;
-            background: #fff;
-            font-family: inherit;
-            font-size: 0.875rem;
-        }
-        .input-field:focus {
-            border-color: #94a3b8;
-            box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
-        }
-        .zone-card {
-            border-left: 4px solid;
-            padding-left: 1rem;
-            margin-bottom: 0.5rem;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header -->
-    <header class="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                    18
-                </div>
-                <span class="font-bold text-lg">18pace</span>
+<body>
+
+    <a href="#calculator" class="skip-link">Skip to calculator</a>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main">
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo" aria-label="18pace home">
+                <span class="nav-logo-mark">18</span>
+                <span>pace</span>
             </a>
-            <nav class="hidden md:flex items-center gap-4 text-sm">
-                <a href="/" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
-                <a href="/training-plan" class="text-muted-foreground hover:text-foreground transition-colors">Training</a>
-                <a href="/gel-nutrition" class="text-muted-foreground hover:text-foreground transition-colors">Nutrition</a>
-                <a href="/treadmill-pace" class="text-muted-foreground hover:text-foreground transition-colors">Treadmill</a>
-                <a href="/heart-rate-zones" class="text-muted-foreground hover:text-foreground transition-colors">HR Zones</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="max-w-3xl mx-auto pt-8 space-y-8">
-        <!-- Hero -->
-        <header class="text-center space-y-3">
-            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Heart Rate Zone Calculator</h1>
-            <p class="text-muted-foreground">Calculate your 5 training zones for half marathon training.</p>
-        </header>
-
-        <!-- Calculator -->
-        <div class="card p-6 space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="text-sm font-medium">Age</label>
-                    <input type="number" id="age" value="22" min="10" max="100" class="input-field mt-1">
-                    <p class="text-xs text-muted-foreground mt-1">Used to estimate max HR</p>
-                </div>
-                <div>
-                    <label class="text-sm font-medium">Resting Heart Rate (bpm)</label>
-                    <input type="number" id="restHR" value="60" min="30" max="100" class="input-field mt-1">
-                    <p class="text-xs text-muted-foreground mt-1">Measure first thing in morning (optional)</p>
-                </div>
-                <div class="md:col-span-2">
-                    <label class="text-sm font-medium">Formula</label>
-                    <select id="formula" class="input-field mt-1">
-                        <option value="fox">Fox Formula: HRmax = 220 - age (simple)</option>
-                        <option value="karvonen" selected>Karvonen Formula: HRmax = 220 - age, HRR = HRmax - HRrest (accurate)</option>
-                    </select>
-                </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Pace Calculator</a>
+                <a href="/training-plan" class="nav-link">Training</a>
+                <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+                <a href="/treadmill-pace" class="nav-link">Treadmill</a>
             </div>
+            <a href="/training-plan" class="nav-cta">Build My Plan <span class="nav-cta-arrow">→</span></a>
 
-            <button onclick="calculateZones()" class="btn-primary w-full py-2.5">Calculate My Zones</button>
+            <button class="nav-mobile" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="14" x2="17" y2="14"/></svg>
+            </button>
+        </div>
 
-            <!-- Results -->
-            <div id="zones" class="hidden mt-6 pt-6 border-t border-border space-y-4">
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="font-semibold">Your Training Zones</h3>
-                    <div class="text-sm text-muted-foreground">
-                        Max HR: <span id="maxHR" class="font-bold text-foreground"></span> bpm
+        <div class="nav-mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+            <a href="/" class="nav-link">Pace Calculator</a>
+            <a href="/training-plan" class="nav-link">Training</a>
+            <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+            <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+            <!-- /heart-rate-zones self-link removed -->
+            <a href="/training-plan" class="btn btn-primary mt-3" onclick="toggleMobileMenu()">Build My Plan →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow hero-trust">BUILT BY A SUB-1:50 FINISHER</p>
+            <h1 class="text-display hero-headline">Train by effort.<br><span style="color: var(--color-text-muted)">Not by feel.</span></h1>
+            <p class="hero-sub">5 training zones using Karvonen or Fox formula. Free, no signup.</p>
+        </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="calc" id="calculator">
+        <div class="container">
+            <div class="calc-grid">
+                <div class="calc-input-block">
+                    <label class="calc-label">Your data</label>
+                    <div class="calc-inputs" style="grid-template-columns: 1fr 1fr;">
+                        <div class="calc-field">
+                            <input type="number" id="age" value="22" min="10" max="100" aria-label="Age">
+                            <span class="calc-field-unit">Age</span>
+                        </div>
+                        <div class="calc-field">
+                            <input type="number" id="restHR" value="60" min="30" max="100" aria-label="Resting heart rate">
+                            <span class="calc-field-unit">Resting HR</span>
+                        </div>
                     </div>
+
+                    <label class="calc-label mt-5">Formula</label>
+                    <div class="calc-inputs" style="grid-template-columns: 1fr;">
+                        <div class="calc-field">
+                            <select id="formula" aria-label="Formula" style="width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0; font-family: inherit; font-size: var(--text-h4); font-weight: 600; color: var(--color-text); appearance: none; cursor: pointer;">
+                                <option value="karvonen" selected>Karvonen · uses resting HR</option>
+                                <option value="fox">Fox · simple 220-age</option>
+                            </select>
+                            <span class="calc-field-unit">Choose formula</span>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="calculateZones()" class="btn btn-primary mt-5" style="width: 100%;">
+                        Calculate My Zones
+                        <span class="arrow">→</span>
+                    </button>
                 </div>
-                <div id="zoneList" class="space-y-3"></div>
+
+                <div class="calc-result" id="zones">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-5);">
+                        <p class="calc-label" style="margin: 0;">Your zones</p>
+                        <div style="font-size: var(--text-small); color: var(--color-text-muted);">
+                            Max HR · <span id="maxHR" style="font-weight: 700; color: var(--color-text); font-family: var(--font-mono);"></span> bpm
+                        </div>
+                    </div>
+                    <div id="zoneList"></div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- E-E-A-T Real Experience -->
-        <div class="card p-6 space-y-4">
-            <h2 class="text-xl font-bold tracking-tight">How I Used HR Zones for Sub 1:50 (My Experience)</h2>
-            <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>When I started training for my sub-1:50, I made the classic mistake of running every session at "moderate effort" (around Zone 3). I improved slowly for months.</p>
-                <p><strong>The breakthrough:</strong> Once I learned to actually run at the correct zones, training became much more purposeful. Easy runs became truly easy (Zone 2, conversational pace). Hard intervals hit the right intensity (Zone 4-5). Recovery happened.</p>
-                <p><strong>Sub 1:50 Key Takeaway:</strong> Most of your weekly volume (60-70%) should be in <strong>Zone 2</strong>. The other 30-40% should be specific Zone 4-5 intervals. If you're always at Zone 3, you'll plateau at sub 1:55 and never break 1:50.</p>
-                <p><strong>Karvonen vs Fox Formula:</strong> Karvonen uses your resting heart rate to give more accurate zones. For someone age 22 with resting HR of 60, Karvonen gives roughly the same result. But for older runners or those with low resting HR, Karvonen is significantly more accurate.</p>
+    <!-- REAL EXPERIENCE -->
+    <section class="section-experience">
+        <div class="container-narrow">
+            <p class="eyebrow">Real experience</p>
+            <h2 class="mt-3">How I used HR zones for sub 1:50.</h2>
+            <p class="text-muted mt-2" style="max-width: 560px;">The mistake that kept me plateauing at sub 1:55.</p>
+
+            <div class="mt-6">
+                <article class="exp-block">
+                    <div class="exp-block-km">Zone 3</div>
+                    <h3>Every session "moderate".</h3>
+                    <p>I started training for my sub-1:50 running every session at "moderate effort" (around Zone 3). I improved slowly for months.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">70/30</div>
+                    <h3>Breakthrough split.</h3>
+                    <p>Once I learned to actually run at the correct zones, training became purposeful. Easy runs became truly easy (Zone 2). Hard intervals hit right intensity (Zone 4-5). Recovery happened.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">Karvonen</div>
+                    <h3>Why Karvonen over Fox.</h3>
+                    <p>Karvonen uses your resting heart rate for more accurate zones. For someone age 22 with resting HR of 60, the formulas give similar results. For older runners or those with low resting HR, Karvonen is significantly more accurate.</p>
+                </article>
             </div>
         </div>
+    </section>
 
-        <!-- Internal Links -->
-        <div class="text-center pt-4 border-t border-border space-y-2">
-            <div class="flex flex-col md:flex-row gap-3 justify-center">
-                <a href="/" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    ← Back to Pace Calculator
-                </a>
-                <a href="/training-plan" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    12-Week Training Plan →
-                </a>
-            </div>
+    <!-- RELATED TOOLS -->
+    <section class="section-tools">
+        <div class="container">
+            <p class="eyebrow">More tools</p>
+            <h2 class="mt-3">Pair this with race-day planning.</h2>
+            <ol class="tool-list">
+                <li class="tool-item">
+                    <div class="tool-num">01</div>
+                    <div><h3>Pace Calculator</h3><p>Calculate your exact splits per km / mile.</p></div>
+                    <a href="/" class="tool-link">Calculate →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">02</div>
+                    <div><h3>Training Plan</h3><p>12-week fragmented-time plan for busy runners.</p></div>
+                    <a href="/training-plan" class="tool-link">Build plan →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">03</div>
+                    <div><h3>Gel Timing</h3><p>Plan your race-day fueling based on finish time.</p></div>
+                    <a href="/gel-nutrition" class="tool-link">Plan gels →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">04</div>
+                    <div><h3>Treadmill Converter</h3><p>Convert outdoor pace to treadmill speed + incline.</p></div>
+                    <a href="/treadmill-pace" class="tool-link">Convert pace →</a>
+                </li>
+            </ol>
         </div>
-    </div>
+    </section>
 
-
-        <!-- Other Tools (Internal Links) -->
-        <div class="text-center pt-8 border-t border-border">
-            <p class="text-sm font-medium text-muted-foreground mb-4">Other 18pace Tools</p>
-            <div class="flex flex-wrap gap-2 justify-center">
-                <a href="/" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Pace Calculator</a>
-                <a href="/training-plan" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">12-Week Training Plan</a>
-                <a href="/gel-nutrition" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Gel & Nutrition</a>
-                <a href="/treadmill-pace" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Treadmill Pace</a>
-                <a href="/heart-rate-zones" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">HR Zones</a>
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-7) 0 var(--space-6); background: var(--color-bg);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="nav-logo">
+                        <span class="nav-logo-mark">18</span>
+                        <span>pace</span>
+                    </div>
+                    <p style="font-size: var(--text-small); color: var(--color-text-muted); margin-top: var(--space-3); max-width: 360px; line-height: 1.5;">Built by an actual sub-1:50 finisher.<br>Run smarter. Race better.</p>
+                </div>
+                <nav aria-label="Footer" style="display: flex; gap: var(--space-7); flex-wrap: wrap;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Tools</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="/" class="nav-link">Pace Calculator</a></li>
+                            <li><a href="/training-plan" class="nav-link">Training Plan</a></li>
+                            <li><a href="/gel-nutrition" class="nav-link">Gel Timing</a></li>
+                            <li><a href="/treadmill-pace" class="nav-link">Treadmill Pace</a></li>
+                            <!-- /heart-rate-zones self-link removed -->
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-    <!-- Footer -->
-    <footer class="border-t border-border py-8 mt-12">
-        <div class="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
-            Built by an actual sub-1:50 runner · © 2026 18pace
+            <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: var(--text-tiny); color: var(--color-text-muted);">
+                <span>© 2026 18pace · Free forever</span>
+                <span>Made for runners chasing a number.</span>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS -->
     <script>
-        function calculateZones() {
-            const age = parseInt(document.getElementById('age').value) || 22;
-            const restHR = parseInt(document.getElementById('restHR').value) || 60;
-            const formula = document.getElementById('formula').value;
+    function calculateZones() {
+        const age = parseInt(document.getElementById('age').value) || 22;
+        const restHR = parseInt(document.getElementById('restHR').value) || 60;
+        const formula = document.getElementById('formula').value;
 
-            // Calculate Max HR (Fox Formula)
-            const maxHR = 220 - age;
+        const maxHR = 220 - age;
+        const hrr = maxHR - restHR;
 
-            // Calculate Heart Rate Reserve (Karvonen)
-            const hrr = maxHR - restHR;
+        const zones = [
+            { num: 1, name: 'Recovery', foxLow: 50, foxHigh: 60, karvonenLow: 50, karvonenHigh: 60, pace: 'Very easy · conversational' },
+            { num: 2, name: 'Endurance', foxLow: 60, foxHigh: 70, karvonenLow: 60, karvonenHigh: 70, pace: 'Easy · marathon pace ~5:50/km' },
+            { num: 3, name: 'Tempo', foxLow: 70, foxHigh: 80, karvonenLow: 70, karvonenHigh: 80, pace: 'Steady · 10K race pace ~4:50/km' },
+            { num: 4, name: 'Threshold', foxLow: 80, foxHigh: 90, karvonenLow: 80, karvonenHigh: 90, pace: 'Hard · 5K race pace ~4:30/km' },
+            { num: 5, name: 'VO2 Max', foxLow: 90, foxHigh: 100, karvonenLow: 90, karvonenHigh: 100, pace: 'Very hard · intervals @ 4:15/km' }
+        ];
 
-            // Define zones (% HRmax for Fox, % HRR for Karvonen)
-            const zones = [
-                { num: 1, name: 'Recovery', foxLow: 50, foxHigh: 60, karvonenLow: 50, karvonenHigh: 60, pace: 'Very easy · conversational', color: '#94a3b8' },
-                { num: 2, name: 'Endurance', foxLow: 60, foxHigh: 70, karvonenLow: 60, karvonenHigh: 70, pace: 'Easy · marathon pace ~5:50/km', color: '#3b82f6' },
-                { num: 3, name: 'Tempo', foxLow: 70, foxHigh: 80, karvonenLow: 70, karvonenHigh: 80, pace: 'Steady · 10K race pace ~4:50/km', color: '#10b981' },
-                { num: 4, name: 'Threshold', foxLow: 80, foxHigh: 90, karvonenLow: 80, karvonenHigh: 90, pace: 'Hard · 5K race pace ~4:30/km', color: '#f59e0b' },
-                { num: 5, name: 'VO2 Max', foxLow: 90, foxHigh: 100, karvonenLow: 90, karvonenHigh: 100, pace: 'Very hard · intervals @ 4:15/km', color: '#ef4444' }
-            ];
+        document.getElementById('maxHR').textContent = maxHR;
 
-            // Display results
-            document.getElementById('maxHR').textContent = maxHR;
+        const zoneList = document.getElementById('zoneList');
+        zoneList.innerHTML = '';
 
-            const zoneList = document.getElementById('zoneList');
-            zoneList.innerHTML = '';
+        zones.forEach(zone => {
+            let low, high;
+            if (formula === 'karvonen') {
+                low = Math.round(restHR + hrr * zone.karvonenLow / 100);
+                high = Math.round(restHR + hrr * zone.karvonenHigh / 100);
+            } else {
+                low = Math.round(maxHR * zone.foxLow / 100);
+                high = Math.round(maxHR * zone.foxHigh / 100);
+            }
 
-            zones.forEach(zone => {
-                let low, high;
-                if (formula === 'karvonen') {
-                    // Karvonen: HR = HRrest + HRR × %
-                    low = Math.round(restHR + hrr * zone.karvonenLow / 100);
-                    high = Math.round(restHR + hrr * zone.karvonenHigh / 100);
-                } else {
-                    // Fox: HR = HRmax × %
-                    low = Math.round(maxHR * zone.foxLow / 100);
-                    high = Math.round(maxHR * zone.foxHigh / 100);
-                }
+            const div = document.createElement('div');
+            div.style.cssText = 'display: grid; grid-template-columns: 50px 1fr auto; gap: var(--space-4); padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); align-items: baseline;';
 
-                const div = document.createElement('div');
-                div.className = 'zone-card';
-                div.style.borderLeftColor = zone.color;
-                div.innerHTML = `
-                    <div class="flex justify-between items-start mb-1">
-                        <div>
-                            <strong class="text-sm">Zone ${zone.num}: ${zone.name}</strong>
-                            <span class="text-xs text-muted-foreground ml-2">${zone.foxLow}-${zone.foxHigh}% HRmax</span>
-                        </div>
-                        <span class="font-bold">${low}-${high} bpm</span>
-                    </div>
-                    <p class="text-xs text-muted-foreground">${zone.pace}</p>
-                `;
-                zoneList.appendChild(div);
-            });
+            div.innerHTML = `
+                <div style="font-family: var(--font-mono); font-size: var(--text-h3); font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--color-text-muted);">Z${zone.num}</div>
+                <div>
+                    <div style="font-weight: 700; font-size: var(--text-body); margin-bottom: 4px;">Zone ${zone.num} · ${zone.name}</div>
+                    <div style="font-size: var(--text-small); color: var(--color-text-muted);">${zone.foxLow}-${zone.foxHigh}% HRmax · ${zone.pace}</div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: var(--text-body); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums;">${low}–${high}<span style="font-size: var(--text-tiny); color: var(--color-text-muted); font-weight: 500; margin-left: 4px;">bpm</span></div>
+            `;
+            zoneList.appendChild(div);
+        });
+    }
 
-            document.getElementById('zones').classList.remove('hidden');
-        }
+    calculateZones();
 
-        // Initialize with default values
-        calculateZones();
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        menu.classList.toggle('is-open');
+        const btn = document.querySelector('.nav-mobile');
+        if (btn) btn.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    }
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- GA4 -->
     <div style="display:none">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-W24L7KH2YL');
     </script>
     </div>

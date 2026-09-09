@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO TDK -->
     <title>12-Week Sub 1:50 Half Marathon Training Plan Generator | 18pace</title>
     <meta name="description" content="Generate a customized 12 week half marathon training plan to break 1:50. Built by an actual sub-1:50 runner with a real fragmented-time strategy for busy students.">
     <meta name="keywords" content="12 week half marathon training plan, sub 1:50 training, half marathon schedule, 1 hour 50 min half marathon, fragmented training">
     <meta name="author" content="18pace">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="12-Week Sub 1:50 Training Plan | 18pace">
     <meta property="og:description" content="Customized 12 week half marathon training plan to break 1:50. Built by an actual sub-1:50 runner.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://18pace.com/training-plan">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://18pace.com/training-plan">
 
-    <!-- GEO Optimization -->
+    <meta name="robots" content="index, follow">
     <meta name="ai-content-declaration" content="ai-assisted-content">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,236 +28,250 @@
         "url": "https://18pace.com/training-plan",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Person",
-            "name": "18pace Runner",
-            "description": "Sub-1:50 half marathon finisher, civil engineering student"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Person", "name": "18pace Runner", "description": "Sub-1:50 half marathon finisher" }
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#f1f5f9', border: '#e2e8f0' }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/design-system.css">
 
-    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #fafafa;
-            color: #0f172a;
-            -webkit-font-smoothing: antialiased;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .btn-primary {
-            background: #0f172a;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: #1e293b; }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-        .input-field {
-            width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            outline: none;
-            background: #fff;
-            font-family: inherit;
-            font-size: 0.875rem;
-        }
-        .input-field:focus {
-            border-color: #94a3b8;
-            box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
-        }
-        .pulse-dot {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header (consistent with index.html) -->
-    <header class="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                    18
-                </div>
-                <span class="font-bold text-lg">18pace</span>
+<body>
+
+    <a href="#generator" class="skip-link">Skip to calculator</a>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main">
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo" aria-label="18pace home">
+                <span class="nav-logo-mark">18</span>
+                <span>pace</span>
             </a>
-            <nav class="hidden md:flex items-center gap-4 text-sm">
-                <a href="/" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
-                <a href="/training-plan" class="text-muted-foreground hover:text-foreground transition-colors">Training</a>
-                <a href="/gel-nutrition" class="text-muted-foreground hover:text-foreground transition-colors">Nutrition</a>
-                <a href="/treadmill-pace" class="text-muted-foreground hover:text-foreground transition-colors">Treadmill</a>
-                <a href="/heart-rate-zones" class="text-muted-foreground hover:text-foreground transition-colors">HR Zones</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="max-w-3xl mx-auto pt-8 space-y-8">
-        <!-- Hero Section -->
-        <header class="text-center space-y-3">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-4">
-                <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
-                Built by an actual sub-1:50 finisher
+            <div class="nav-links">
+                <a href="/" class="nav-link">Pace Calculator</a>
+                <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+                <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+                <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">12-Week Sub 1:50 Training Plan</h1>
-            <p class="text-muted-foreground">The "Fragmented Time" approach for runners with busy schedules.</p>
-        </header>
+            <a href="/heart-rate-zones" class="nav-cta">My HR Zones <span class="nav-cta-arrow">→</span></a>
 
-        <!-- Generator Card -->
-        <div class="card p-6 space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="text-sm font-medium">Current Weekly Mileage (km)</label>
-                    <input type="number" id="baseMileage" value="25" min="10" class="input-field mt-1">
+            <button class="nav-mobile" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="14" x2="17" y2="14"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+            <a href="/" class="nav-link">Pace Calculator</a>
+            <!-- /training-plan self-link removed -->
+            <a href="/gel-nutrition" class="nav-link">Gel Timing</a>
+            <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+            <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
+            <a href="/heart-rate-zones" class="btn btn-primary mt-3" onclick="toggleMobileMenu()">My HR Zones →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow hero-trust">BUILT BY A SUB-1:50 FINISHER</p>
+            <h1 class="text-display hero-headline">12 weeks.<br><span style="color: var(--color-text-muted)">Base. Build. Peak. Taper.</span></h1>
+            <p class="hero-sub">A structured 12-week plan built around fragmented-time training for busy runners. Free, no signup.</p>
+        </div>
+    </section>
+
+    <!-- GENERATOR -->
+    <section class="calc" id="generator">
+        <div class="container">
+            <div class="calc-grid">
+                <div class="calc-input-block">
+                    <label class="calc-label">Current training base</label>
+                    <div class="calc-inputs" style="grid-template-columns: 1fr 1fr;">
+                        <div class="calc-field">
+                            <input type="number" id="baseMileage" value="25" min="10" max="80" aria-label="Weekly base mileage">
+                            <span class="calc-field-unit">KM / week</span>
+                        </div>
+                        <div class="calc-field">
+                            <input type="number" id="longestRun" value="10" min="5" max="25" aria-label="Longest recent run">
+                            <span class="calc-field-unit">Longest run (km)</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="generatePlan()" class="btn btn-primary mt-5" style="width: 100%;">
+                        Generate My 12-Week Plan
+                        <span class="arrow">→</span>
+                    </button>
                 </div>
-                <div>
-                    <label class="text-sm font-medium">Longest Run in Last 2 Weeks (km)</label>
-                    <input type="number" id="longestRun" value="10" min="5" class="input-field mt-1">
+
+                <div class="calc-result" id="planResults">
+                    <p class="calc-label">Your 12-week plan</p>
+                    <div id="planTableBody" class="mt-3" style="overflow-x: auto;"></div>
+                    <div class="calc-print">
+                        <button type="button" onclick="window.print()" class="btn btn-outline">Print My Plan <span class="arrow">→</span></button>
+                    </div>
                 </div>
             </div>
-            <button onclick="generatePlan()" class="btn-primary w-full py-2.5">Generate My 12-Week Schedule</button>
+        </div>
+    </section>
 
-            <!-- Results -->
-            <div id="planResults" class="hidden mt-6 overflow-x-auto">
-                <table class="w-full text-sm text-left border-collapse">
-                    <thead class="text-xs text-muted-foreground uppercase bg-slate-50 border-b border-border">
-                        <tr>
-                            <th class="p-3">Phase</th>
-                            <th class="p-3">Week</th>
-                            <th class="p-3">Weekly Volume</th>
-                            <th class="p-3">Key Workout</th>
-                            <th class="p-3">Weekend LSD</th>
-                        </tr>
-                    </thead>
-                    <tbody id="planTableBody" class="divide-y divide-border">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
+    <!-- REAL EXPERIENCE -->
+    <section class="section-experience">
+        <div class="container-narrow">
+            <p class="eyebrow">Real experience</p>
+            <h2 class="mt-3">How to train while busy.</h2>
+            <p class="text-muted mt-2" style="max-width: 560px;">From a civil engineering student who had no 2-hour windows.</p>
+
+            <div class="mt-6">
+                <article class="exp-block">
+                    <div class="exp-block-km">2×</div>
+                    <h3>Fragmented time.</h3>
+                    <p>Split your long runs. 7.5km in the morning before class. 7.5km at night. Total 15km on weekdays without disrupting coursework.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">19</div>
+                    <h3>No 20km long runs.</h3>
+                    <p>I never ran more than 19km in training. Race day wasn't a shock. HIIT + accumulated volume was enough.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">60%</div>
+                    <h3>Stay in Zone 2.</h3>
+                    <p>60-70% of weekly volume in Zone 2. 30-40% in Zone 4-5. If you're always at Zone 3, you'll plateau at sub 1:55 and never break 1:50.</p>
+                </article>
             </div>
         </div>
+    </section>
 
-        <!-- E-E-A-T Content: The Civil Engineering Student Story -->
-        <div class="card p-6 space-y-4">
-            <h2 class="text-xl font-bold tracking-tight">How to Train While Busy (My Civil Engineering Story)</h2>
-            <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>When I was training for my sub-1:50 half marathon, I was a senior civil engineering student buried in coursework and lab reports. Finding a solid 2-hour block for a Long Slow Distance (LSD) run on weekends felt impossible. Most generic plans failed me because they demanded perfect, uninterrupted schedules.</p>
-                <p><strong>The "Fragmented Time" Strategy:</strong> Instead of obsessing over single massive workouts, I split my volume. I replaced one standard 15km run with two high-quality 7.5km runs (one in the early morning, one late at night). This kept my cardiovascular load high without failing my structural analysis class.</p>
-                <p><strong>Key Takeaway for Sub 1:50:</strong> You do not need to run 20km every Sunday. If you can consistently hit <strong>4x1km intervals at 4:45/km pace</strong> on Tuesdays, and string together an accumulated 40km of volume throughout your busy week, your body will be physiologically ready to hold a 5:13/km pace on race day.</p>
+    <!-- RELATED TOOLS -->
+    <section class="section-tools">
+        <div class="container">
+            <p class="eyebrow">More tools</p>
+            <h2 class="mt-3">Pair your training with these.</h2>
+            <ol class="tool-list">
+                <li class="tool-item">
+                    <div class="tool-num">01</div>
+                    <div><h3>Pace Calculator</h3><p>Calculate your exact splits per km / mile.</p></div>
+                    <a href="/" class="tool-link">Calculate →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">02</div>
+                    <div><h3>Gel Timing</h3><p>Plan your race-day fueling based on finish time.</p></div>
+                    <a href="/gel-nutrition" class="tool-link">Plan gels →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">03</div>
+                    <div><h3>Treadmill Converter</h3><p>Convert outdoor pace to treadmill speed + incline.</p></div>
+                    <a href="/treadmill-pace" class="tool-link">Convert pace →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">04</div>
+                    <div><h3>HR Zones</h3><p>Train by effort using Karvonen or Fox formula.</p></div>
+                    <a href="/heart-rate-zones" class="tool-link">Calculate zones →</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-7) 0 var(--space-6); background: var(--color-bg);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="nav-logo">
+                        <span class="nav-logo-mark">18</span>
+                        <span>pace</span>
+                    </div>
+                    <p style="font-size: var(--text-small); color: var(--color-text-muted); margin-top: var(--space-3); max-width: 360px; line-height: 1.5;">Built by an actual sub-1:50 finisher.<br>Run smarter. Race better.</p>
+                </div>
+                <nav aria-label="Footer" style="display: flex; gap: var(--space-7); flex-wrap: wrap;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Tools</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="/" class="nav-link">Pace Calculator</a></li>
+                            <!-- /training-plan self-link removed -->
+                            <li><a href="/gel-nutrition" class="nav-link">Gel Timing</a></li>
+                            <li><a href="/treadmill-pace" class="nav-link">Treadmill Pace</a></li>
+                            <li><a href="/heart-rate-zones" class="nav-link">HR Zones</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-
-        <!-- Internal Link Back to Calculator -->
-        <div class="text-center pt-4 border-t border-border">
-            <a href="/" class="inline-flex items-center text-sm text-muted-foreground hover:text-foreground font-medium transition-colors">
-                ← Back to Pace Calculator
-            </a>
-        </div>
-    </div>
-
-
-        <!-- Other Tools (Internal Links) -->
-        <div class="text-center pt-8 border-t border-border">
-            <p class="text-sm font-medium text-muted-foreground mb-4">Other 18pace Tools</p>
-            <div class="flex flex-wrap gap-2 justify-center">
-                <a href="/" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Pace Calculator</a>
-                <a href="/training-plan" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">12-Week Training Plan</a>
-                <a href="/gel-nutrition" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Gel & Nutrition</a>
-                <a href="/treadmill-pace" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Treadmill Pace</a>
-                <a href="/heart-rate-zones" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">HR Zones</a>
+            <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: var(--text-tiny); color: var(--color-text-muted);">
+                <span>© 2026 18pace · Free forever</span>
+                <span>Made for runners chasing a number.</span>
             </div>
-        </div>
-    <!-- Footer (consistent with index.html) -->
-    <footer class="border-t border-border py-8 mt-12">
-        <div class="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
-            Built by an actual sub-1:50 runner · © 2026 18pace
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS -->
     <script>
-        function generatePlan() {
-            const tbody = document.getElementById('planTableBody');
-            tbody.innerHTML = '';
+    function generatePlan() {
+        const tbody = document.getElementById('planTableBody');
 
-            // Simplified MVP Plan Logic based on Sub 1:50 requirements
-            const plan = [
-                { phase: "Base", week: 1, vol: "30km", key: "6x400m @ 4:30/km", lsd: "12km @ 5:40/km" },
-                { phase: "Base", week: 2, vol: "32km", key: "3km Tempo @ 5:00/km", lsd: "14km @ 5:40/km" },
-                { phase: "Base", week: 3, vol: "35km", key: "8x400m @ 4:30/km", lsd: "15km @ 5:40/km" },
-                { phase: "Base", week: 4, vol: "25km", key: "Recovery Week", lsd: "10km @ 5:50/km" },
-                { phase: "Build", week: 5, vol: "38km", key: "4x1km @ 4:45/km", lsd: "16km @ 5:35/km" },
-                { phase: "Build", week: 6, vol: "40km", key: "5km Tempo @ 5:00/km", lsd: "18km @ 5:35/km" },
-                { phase: "Build", week: 7, vol: "42km", key: "5x1km @ 4:45/km", lsd: "19km @ 5:30/km" },
-                { phase: "Build", week: 8, vol: "30km", key: "Recovery Week", lsd: "12km @ 5:50/km" },
-                { phase: "Peak", week: 9, vol: "45km", key: "6x1km @ 4:45/km", lsd: "20km @ 5:30/km" },
-                { phase: "Peak", week: 10, vol: "46km", key: "8km Tempo @ 5:05/km", lsd: "21km @ 5:30/km" },
-                { phase: "Taper", week: 11, vol: "30km", key: "3x1km @ 4:40/km", lsd: "12km @ 5:30/km" },
-                { phase: "Race", week: 12, vol: "15km", key: "Light Shakeout", lsd: "RACE DAY (Sub 1:50)" }
-            ];
+        const plan = [
+            { phase: "Base", week: 1, vol: "30km", key: "6x400m @ 4:30/km", lsd: "12km @ 5:40/km" },
+            { phase: "Base", week: 2, vol: "32km", key: "3km Tempo @ 5:00/km", lsd: "14km @ 5:40/km" },
+            { phase: "Base", week: 3, vol: "35km", key: "8x400m @ 4:30/km", lsd: "15km @ 5:40/km" },
+            { phase: "Base", week: 4, vol: "25km", key: "Recovery Week", lsd: "10km @ 5:50/km" },
+            { phase: "Build", week: 5, vol: "38km", key: "4x1km @ 4:45/km", lsd: "16km @ 5:35/km" },
+            { phase: "Build", week: 6, vol: "40km", key: "5km Tempo @ 5:00/km", lsd: "18km @ 5:35/km" },
+            { phase: "Build", week: 7, vol: "42km", key: "5x1km @ 4:45/km", lsd: "19km @ 5:30/km" },
+            { phase: "Build", week: 8, vol: "30km", key: "Recovery Week", lsd: "12km @ 5:50/km" },
+            { phase: "Peak", week: 9, vol: "45km", key: "6x1km @ 4:45/km", lsd: "20km @ 5:30/km" },
+            { phase: "Peak", week: 10, vol: "46km", key: "8km Tempo @ 5:05/km", lsd: "21km @ 5:30/km" },
+            { phase: "Taper", week: 11, vol: "30km", key: "3x1km @ 4:40/km", lsd: "12km @ 5:30/km" },
+            { phase: "Race", week: 12, vol: "15km", key: "Light Shakeout", lsd: "RACE DAY (Sub 1:50)" }
+        ];
 
-            plan.forEach((w, index) => {
-                const tr = document.createElement('tr');
-                // Alternating row colors for better UI
-                if(index % 2 !== 0) tr.classList.add('bg-slate-50');
+        let html = '<table style="width: 100%; border-collapse: collapse; font-size: var(--text-small); font-variant-numeric: tabular-nums;">';
+        html += '<thead><tr style="border-bottom: 1px solid var(--color-text);">';
+        html += '<th style="text-align: left; padding: var(--space-3) var(--space-2) var(--space-3) 0; font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); font-weight: 600;">Phase</th>';
+        html += '<th style="text-align: left; padding: var(--space-3) var(--space-2); font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); font-weight: 600;">Week</th>';
+        html += '<th style="text-align: left; padding: var(--space-3) var(--space-2); font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); font-weight: 600;">Volume</th>';
+        html += '<th style="text-align: left; padding: var(--space-3) var(--space-2); font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); font-weight: 600;">Key workout</th>';
+        html += '<th style="text-align: left; padding: var(--space-3) 0 var(--space-3) var(--space-2); font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); font-weight: 600;">Long run</th>';
+        html += '</tr></thead><tbody>';
 
-                tr.innerHTML = `
-                    <td class="p-3 font-medium text-muted-foreground">${w.phase}</td>
-                    <td class="p-3 font-bold">Week ${w.week}</td>
-                    <td class="p-3">${w.vol}</td>
-                    <td class="p-3">${w.key}</td>
-                    <td class="p-3 font-medium">${w.lsd}</td>
-                `;
-                tbody.appendChild(tr);
-            });
+        plan.forEach((w, i) => {
+            const rowStyle = i % 2 === 0
+                ? 'background: var(--color-bg); border-bottom: 1px solid var(--color-border-subtle);'
+                : 'background: var(--color-bg-elevated); border-bottom: 1px solid var(--color-border-subtle);';
+            html += `<tr style="${rowStyle}">`;
+            html += `<td style="padding: var(--space-3) var(--space-2) var(--space-3) 0; color: var(--color-text-muted); font-weight: 500;">${w.phase}</td>`;
+            html += `<td style="padding: var(--space-3) var(--space-2); font-weight: 700;">Week ${w.week}</td>`;
+            html += `<td style="padding: var(--space-3) var(--space-2);">${w.vol}</td>`;
+            html += `<td style="padding: var(--space-3) var(--space-2);">${w.key}</td>`;
+            html += `<td style="padding: var(--space-3) 0 var(--space-3) var(--space-2); font-weight: 500;">${w.lsd}</td>`;
+            html += '</tr>';
+        });
 
-            document.getElementById('planResults').classList.remove('hidden');
-        }
+        html += '</tbody></table>';
+        tbody.innerHTML = html;
+    }
+
+    generatePlan();
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        menu.classList.toggle('is-open');
+        const btn = document.querySelector('.nav-mobile');
+        if (btn) btn.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    }
     </script>
-<!-- Google tag (gtag.js) -->
-<div style="display:none">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-W24L7KH2YL');
-</script>
-</div>
+    <!-- GA4 -->
+    <div style="display:none">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W24L7KH2YL');
+    </script>
+    </div>
 </body>
 </html>

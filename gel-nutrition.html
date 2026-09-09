@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO TDK -->
     <title>Race Day Gel & Nutrition Timeline for Sub 1:50 | 18pace</title>
-    <meta name="description" content="Calculate when to take energy gels during your sub 1:50 half marathon. Based on real race-day data from an actual sub-1:50 finisher. Includes Amazon gel recommendations.">
+    <meta name="description" content="Calculate when to take energy gels during your sub 1:50 half marathon. Based on real race-day data from an actual sub-1:50 finisher.">
     <meta name="keywords" content="half marathon gel strategy, when to take gels half marathon, sub 1:50 nutrition, race day fuel plan, marathon energy gel timing">
     <meta name="author" content="18pace">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Race Day Gel & Nutrition Timeline | 18pace">
     <meta property="og:description" content="Calculate when to take energy gels for sub 1:50 finish. Built from real race-day experience.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://18pace.com/gel-nutrition">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://18pace.com/gel-nutrition">
 
-    <!-- GEO Optimization -->
+    <meta name="robots" content="index, follow">
     <meta name="ai-content-declaration" content="ai-assisted-content">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,305 +28,284 @@
         "url": "https://18pace.com/gel-nutrition",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Person",
-            "name": "18pace Runner",
-            "description": "Sub-1:50 half marathon finisher, civil engineering student"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Person", "name": "18pace Runner", "description": "Sub-1:50 half marathon finisher" }
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#0f172a', secondary: '#f1f5f9', border: '#e2e8f0' }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/design-system.css">
 
-    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #fafafa;
-            color: #0f172a;
-            -webkit-font-smoothing: antialiased;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        .btn-primary {
-            background: #0f172a;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: #1e293b; }
-        .input-field {
-            width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            outline: none;
-            background: #fff;
-            font-family: inherit;
-            font-size: 0.875rem;
-        }
-        .input-field:focus {
-            border-color: #94a3b8;
-            box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
-        }
-        select.input-field {
-            cursor: pointer;
-        }
-        .gel-marker {
-            position: relative;
-            padding-left: 2rem;
-        }
-        .gel-marker::before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 0.5rem;
-            width: 0.75rem;
-            height: 0.75rem;
-            background: #f59e0b;
-            border-radius: 50%;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="min-h-screen p-4 md:p-8">
-    <!-- Header (consistent with other pages) -->
-    <header class="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                    18
-                </div>
-                <span class="font-bold text-lg">18pace</span>
+<body>
+
+    <a href="#generator" class="skip-link">Skip to calculator</a>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main">
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo" aria-label="18pace home">
+                <span class="nav-logo-mark">18</span>
+                <span>pace</span>
             </a>
-            <nav class="hidden md:flex items-center gap-4 text-sm">
-                <a href="/" class="text-muted-foreground hover:text-foreground transition-colors">Calculator</a>
-                <a href="/training-plan" class="text-muted-foreground hover:text-foreground transition-colors">Training</a>
-                <a href="/gel-nutrition" class="text-muted-foreground hover:text-foreground transition-colors">Nutrition</a>
-                <a href="/treadmill-pace" class="text-muted-foreground hover:text-foreground transition-colors">Treadmill</a>
-                <a href="/heart-rate-zones" class="text-muted-foreground hover:text-foreground transition-colors">HR Zones</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="max-w-3xl mx-auto pt-8 space-y-8">
-        <!-- Hero Section -->
-        <header class="text-center space-y-3">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-4">
-                Built from actual sub-1:50 race-day data
+            <div class="nav-links">
+                <a href="/" class="nav-link">Pace Calculator</a>
+                <a href="/training-plan" class="nav-link">Training</a>
+                <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+                <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Race Day Gel & Nutrition Timeline</h1>
-            <p class="text-muted-foreground">When to take energy gels during your sub 1:50 half marathon.</p>
-        </header>
+            <a href="/training-plan" class="nav-cta">Build My Plan <span class="nav-cta-arrow">→</span></a>
 
-        <!-- Calculator Card -->
-        <div class="card p-6 space-y-6">
-            <div class="space-y-4">
-                <div>
-                    <label class="text-sm font-medium">Target Finish Time</label>
-                    <div class="grid grid-cols-3 gap-3 mt-1">
-                        <div>
-                            <input type="number" id="hours" value="1" min="0" max="5" class="input-field" placeholder="HH">
-                            <p class="text-xs text-muted-foreground mt-1">Hours</p>
+            <button class="nav-mobile" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="14" x2="17" y2="14"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+            <a href="/" class="nav-link">Pace Calculator</a>
+            <a href="/training-plan" class="nav-link">Training</a>
+            <!-- /gel-nutrition self-link removed -->
+            <a href="/treadmill-pace" class="nav-link">Treadmill</a>
+            <a href="/heart-rate-zones" class="nav-link">HR Zones</a>
+            <a href="/training-plan" class="btn btn-primary mt-3" onclick="toggleMobileMenu()">Build My Plan →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow hero-trust">BUILT BY A SUB-1:50 FINISHER</p>
+            <h1 class="text-display hero-headline">Gel timing.<br><span style="color: var(--color-text-muted)">Don't wait for the wall.</span></h1>
+            <p class="hero-sub">When to take energy gels during your sub 1:50 half marathon. Based on real race-day data from the 15K wall mistake.</p>
+        </div>
+    </section>
+
+    <!-- GENERATOR -->
+    <section class="calc" id="generator">
+        <div class="container">
+            <div class="calc-grid">
+                <div class="calc-input-block">
+                    <label class="calc-label">Target finish time</label>
+                    <div class="calc-inputs">
+                        <div class="calc-field">
+                            <input type="number" id="hours" value="1" min="0" max="5" aria-label="Hours">
+                            <span class="calc-field-unit">Hours</span>
                         </div>
-                        <div>
-                            <input type="number" id="minutes" value="50" min="0" max="59" class="input-field" placeholder="MM">
-                            <p class="text-xs text-muted-foreground mt-1">Minutes</p>
+                        <div class="calc-field">
+                            <input type="number" id="minutes" value="50" min="0" max="59" aria-label="Minutes">
+                            <span class="calc-field-unit">Minutes</span>
                         </div>
-                        <div>
-                            <input type="number" id="seconds" value="0" min="0" max="59" class="input-field" placeholder="SS">
-                            <p class="text-xs text-muted-foreground mt-1">Seconds</p>
+                        <div class="calc-field">
+                            <input type="number" id="seconds" value="0" min="0" max="59" aria-label="Seconds">
+                            <span class="calc-field-unit">Seconds</span>
                         </div>
                     </div>
+
+                    <label class="calc-label mt-5">Body weight & stomach tolerance</label>
+                    <div class="calc-inputs" style="grid-template-columns: 1fr 1.5fr;">
+                        <div class="calc-field">
+                            <input type="number" id="weight" value="65" min="40" max="120" aria-label="Body weight kg">
+                            <span class="calc-field-unit">Weight (kg)</span>
+                        </div>
+                        <div class="calc-field">
+                            <select id="tolerance" aria-label="Stomach tolerance" style="width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0; font-family: inherit; font-size: var(--text-h4); font-weight: 600; color: var(--color-text); appearance: none; cursor: pointer;">
+                                <option value="high">High · every 30 min</option>
+                                <option value="medium" selected>Medium · every 40-45 min</option>
+                                <option value="low">Low · every 50-60 min</option>
+                            </select>
+                            <span class="calc-field-unit">Stomach tolerance</span>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="calculateTimeline()" class="btn btn-primary mt-5" style="width: 100%;">
+                        Calculate My Gel Timeline
+                        <span class="arrow">→</span>
+                    </button>
                 </div>
 
+                <div class="calc-result" id="results">
+                    <p class="calc-label">Your race-day plan</p>
+                    <p class="text-muted mt-3" id="carbSummary" style="font-size: var(--text-body); line-height: 1.5;"></p>
+                    <div id="gelList" class="mt-5"></div>
+                    <div class="calc-print">
+                        <button type="button" onclick="window.print()" class="btn btn-outline">Print My Plan <span class="arrow">→</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL EXPERIENCE -->
+    <section class="section-experience">
+        <div class="container-narrow">
+            <p class="eyebrow">Real experience</p>
+            <h2 class="mt-3">The 15K wall.</h2>
+            <p class="text-muted mt-2" style="max-width: 560px;">The mistake that cost me 25 seconds per kilometer.</p>
+
+            <div class="mt-6">
+                <article class="exp-block">
+                    <div class="exp-block-km">5:10 → 5:35</div>
+                    <h3>Skipped the second gel.</h3>
+                    <p>At my sub 1:50 attempt, I skipped my second gel because I "felt fine". By km 16, my pace dropped from 5:10 to 5:35. I never recovered.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">25g</div>
+                    <h3>Pre-emptive, not reactive.</h3>
+                    <p>Don't wait until you're hungry or tired. By the time you feel it, your glycogen is already depleted. Take gels before you need them.</p>
+                </article>
+
+                <article class="exp-block">
+                    <div class="exp-block-km">60-80g</div>
+                    <h3>Total carbs for 1:50 effort.</h3>
+                    <p>Your body needs roughly 60-80g of carbs during a 1:50 effort. Two well-timed gels (25g each) at km 8-9 and km 14-15 covers this without overwhelming your stomach.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED TOOLS -->
+    <section class="section-tools">
+        <div class="container">
+            <p class="eyebrow">More tools</p>
+            <h2 class="mt-3">Pair this with race-day planning.</h2>
+            <ol class="tool-list">
+                <li class="tool-item">
+                    <div class="tool-num">01</div>
+                    <div><h3>Pace Calculator</h3><p>Calculate your exact splits per km / mile.</p></div>
+                    <a href="/" class="tool-link">Calculate →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">02</div>
+                    <div><h3>Training Plan</h3><p>12-week fragmented-time plan for busy runners.</p></div>
+                    <a href="/training-plan" class="tool-link">Build plan →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">03</div>
+                    <div><h3>Treadmill Converter</h3><p>Convert outdoor pace to treadmill speed + incline.</p></div>
+                    <a href="/treadmill-pace" class="tool-link">Convert pace →</a>
+                </li>
+                <li class="tool-item">
+                    <div class="tool-num">04</div>
+                    <div><h3>HR Zones</h3><p>Train by effort using Karvonen or Fox formula.</p></div>
+                    <a href="/heart-rate-zones" class="tool-link">Calculate zones →</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-7) 0 var(--space-6); background: var(--color-bg);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; align-items: flex-start;">
                 <div>
-                    <label class="text-sm font-medium">Body Weight (kg)</label>
-                    <input type="number" id="weight" value="65" min="40" max="120" class="input-field mt-1">
-                    <p class="text-xs text-muted-foreground mt-1">Used to calculate carb requirements</p>
+                    <div class="nav-logo">
+                        <span class="nav-logo-mark">18</span>
+                        <span>pace</span>
+                    </div>
+                    <p style="font-size: var(--text-small); color: var(--color-text-muted); margin-top: var(--space-3); max-width: 360px; line-height: 1.5;">Built by an actual sub-1:50 finisher.<br>Run smarter. Race better.</p>
                 </div>
-
-                <div>
-                    <label class="text-sm font-medium">Stomach Tolerance</label>
-                    <select id="tolerance" class="input-field mt-1">
-                        <option value="high">High (can take gels every 30 min)</option>
-                        <option value="medium" selected>Medium (every 40-45 min)</option>
-                        <option value="low">Low (every 50-60 min, smaller doses)</option>
-                    </select>
-                </div>
+                <nav aria-label="Footer" style="display: flex; gap: var(--space-7); flex-wrap: wrap;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom: var(--space-3);">Tools</p>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-small);">
+                            <li><a href="/" class="nav-link">Pace Calculator</a></li>
+                            <li><a href="/training-plan" class="nav-link">Training Plan</a></li>
+                            <!-- /gel-nutrition self-link removed -->
+                            <li><a href="/treadmill-pace" class="nav-link">Treadmill Pace</a></li>
+                            <li><a href="/heart-rate-zones" class="nav-link">HR Zones</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
-            <button onclick="calculateTimeline()" class="btn-primary w-full py-2.5">Calculate My Gel Timeline</button>
-
-            <!-- Results -->
-            <div id="results" class="hidden mt-6 pt-6 border-t border-border space-y-6">
-                <div>
-                    <h3 class="font-semibold mb-3">Your Race Day Plan</h3>
-                    <p class="text-sm text-muted-foreground mb-4" id="carbSummary"></p>
-                    <div id="gelList" class="space-y-3"></div>
-                </div>
-
-                <!-- Amazon Affiliate Section (placeholder) -->
-                <div class="rounded-md bg-secondary p-4">
-                    <h4 class="font-semibold text-sm mb-2">Recommended Gels (Tested by Sub-1:50 Runners)</h4>
-                    <p class="text-xs text-muted-foreground mb-3">Add Amazon affiliate links here when ready.</p>
-                    <ul class="text-sm space-y-1">
-                        <li>• Gel 1 (KM 8-9): Caffeine + 25g carbs</li>
-                        <li>• Gel 2 (KM 14-15): 25-30g carbs (caffeine-free)</li>
-                        <li>• Optional Gel 3 (KM 18-19): Only if stomach OK</li>
-                    </ul>
-                </div>
+            <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: var(--text-tiny); color: var(--color-text-muted);">
+                <span>© 2026 18pace · Free forever</span>
+                <span>Made for runners chasing a number.</span>
             </div>
-        </div>
-
-        <!-- E-E-A-T Content: Real Experience -->
-        <div class="card p-6 space-y-4">
-            <h2 class="text-xl font-bold tracking-tight">The 15K Wall (My Real Story)</h2>
-            <div class="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>At my sub 1:50 attempt, I skipped my second gel because I "felt fine". That was a mistake. By KM 16, my pace dropped from 5:10 to 5:35. I lost 25 seconds per kilometer and never recovered.</p>
-                <p><strong>The hard lesson:</strong> Don't wait until you're hungry or tired. By the time you feel it, your glycogen is already depleted. Take gels <strong>before</strong> you need them, not after.</p>
-                <p><strong>Key Takeaway for Sub 1:50:</strong> Your body needs roughly <strong>60-80g of carbs</strong> during a 1:50 effort. Two well-timed gels (25g each) at KM 8-9 and KM 14-15 covers this without overwhelming your stomach.</p>
-                <p><strong>Stomach warning:</strong> If you're not used to taking gels in training, do NOT try them for the first time on race day. Practice in your long runs at least 2-3 times first.</p>
-            </div>
-        </div>
-
-        <!-- Internal Links -->
-        <div class="text-center pt-4 border-t border-border">
-            <div class="flex flex-col md:flex-row gap-3 justify-center">
-                <a href="/" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    ← Back to Pace Calculator
-                </a>
-                <a href="/training-plan" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                    12-Week Training Plan →
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-        <!-- Other Tools (Internal Links) -->
-        <div class="text-center pt-8 border-t border-border">
-            <p class="text-sm font-medium text-muted-foreground mb-4">Other 18pace Tools</p>
-            <div class="flex flex-wrap gap-2 justify-center">
-                <a href="/" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Pace Calculator</a>
-                <a href="/training-plan" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">12-Week Training Plan</a>
-                <a href="/gel-nutrition" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Gel & Nutrition</a>
-                <a href="/treadmill-pace" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">Treadmill Pace</a>
-                <a href="/heart-rate-zones" class="inline-flex items-center px-3 py-1 rounded-md border border-border bg-background hover:bg-secondary text-xs transition-colors">HR Zones</a>
-            </div>
-        </div>
-    <!-- Footer -->
-    <footer class="border-t border-border py-8 mt-12">
-        <div class="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
-            Built by an actual sub-1:50 runner · © 2026 18pace
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS -->
     <script>
-        function calculateTimeline() {
-            const h = parseInt(document.getElementById('hours').value) || 0;
-            const m = parseInt(document.getElementById('minutes').value) || 0;
-            const s = parseInt(document.getElementById('seconds').value) || 0;
-            const weight = parseInt(document.getElementById('weight').value) || 65;
-            const tolerance = document.getElementById('tolerance').value;
+    function calculateTimeline() {
+        const h = parseInt(document.getElementById('hours').value) || 0;
+        const m = parseInt(document.getElementById('minutes').value) || 0;
+        const s = parseInt(document.getElementById('seconds').value) || 0;
+        const weight = parseInt(document.getElementById('weight').value) || 65;
+        const tolerance = document.getElementById('tolerance').value;
 
-            const totalSeconds = h * 3600 + m * 60 + s;
-            const totalMinutes = totalSeconds / 60;
+        const totalSeconds = h * 3600 + m * 60 + s;
+        const totalMinutes = totalSeconds / 60;
+        const hours = totalSeconds / 3600;
 
-            // Calculate carb requirement (60-80g for sub 1:50 effort)
-            const carbPerKg = 1.2; // grams per kg body weight per hour for sub-marathon effort
-            const hours = totalSeconds / 3600;
-            const totalCarbs = Math.round(weight * carbPerKg * hours);
+        const carbPerKg = 1.2;
+        const totalCarbs = Math.round(weight * carbPerKg * hours);
 
-            document.getElementById('carbSummary').textContent =
-                `Based on your ${weight}kg body weight and ${hours.toFixed(2)}h effort, you need approximately ${totalCarbs}g of carbs. We recommend 2-3 energy gels (25g each).`;
+        document.getElementById('carbSummary').textContent =
+            `Based on your ${weight}kg body weight and ${hours.toFixed(2)}h effort, you need approximately ${totalCarbs}g of carbs. We recommend 2-3 energy gels (25g each).`;
 
-            // Determine gel timing based on tolerance
-            const interval = tolerance === 'high' ? 30 : tolerance === 'low' ? 50 : 40;
+        const pacePerKm = totalSeconds / 21.1;
+        const gelList = document.getElementById('gelList');
+        gelList.innerHTML = '';
 
-            // Calculate pace per km
-            const pacePerKm = totalSeconds / 21.1;
+        const gelData = [
+            { num: 1, kmFrom: 7, kmTo: 9, type: 'Caffeine + Carbs', desc: 'Pre-emptive fuel. Take before you feel tired.' },
+            { num: 2, kmFrom: 13, kmTo: 15, type: 'Carbs only', desc: 'Critical gel. Take right before the wall.' }
+        ];
 
-            // Generate gel timing
-            const gelList = document.getElementById('gelList');
-            gelList.innerHTML = '';
-
-            const gelData = [
-                { num: 1, kmFrom: 7, kmTo: 9, type: 'Caffeine + Carbs', desc: 'Pre-emptive fuel. Take before you feel tired.' },
-                { num: 2, kmFrom: 13, kmTo: 15, type: 'Carbs only', desc: 'Critical gel. Take right before the wall.' }
-            ];
-
-            // Optional third gel for low tolerance (smaller, closer to finish)
-            if (tolerance === 'high' && totalCarbs > 70) {
-                gelData.push({ num: 3, kmFrom: 17, kmTo: 19, type: 'Small dose', desc: 'Only if stomach can handle it.' });
-            }
-
-            gelData.forEach(gel => {
-                const midKm = (gel.kmFrom + gel.kmTo) / 2;
-                const timeAtMid = midKm * pacePerKm;
-                const timeStr = formatTime(timeAtMid);
-
-                const div = document.createElement('div');
-                div.className = 'gel-marker p-3 rounded-md bg-secondary';
-                div.innerHTML = `
-                    <div class="flex justify-between items-start mb-1">
-                        <strong class="text-sm">Gel ${gel.num}: KM ${gel.kmFrom}-${gel.kmTo}</strong>
-                        <span class="text-xs text-muted-foreground">${timeStr} elapsed</span>
-                    </div>
-                    <p class="text-xs text-muted-foreground">${gel.type}</p>
-                    <p class="text-xs mt-1">${gel.desc}</p>
-                `;
-                gelList.appendChild(div);
-            });
-
-            document.getElementById('results').classList.remove('hidden');
+        if (tolerance === 'high' && totalCarbs > 70) {
+            gelData.push({ num: 3, kmFrom: 17, kmTo: 19, type: 'Small dose', desc: 'Only if stomach can handle it.' });
         }
 
-        function formatTime(totalSeconds) {
-            const h = Math.floor(totalSeconds / 3600);
-            const m = Math.floor((totalSeconds % 3600) / 60);
-            const s = Math.floor(totalSeconds % 60);
-            if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-            return `${m}:${s.toString().padStart(2, '0')}`;
-        }
+        gelData.forEach(gel => {
+            const midKm = (gel.kmFrom + gel.kmTo) / 2;
+            const timeAtMid = midKm * pacePerKm;
+            const timeStr = formatTime(timeAtMid);
+
+            const div = document.createElement('div');
+            div.style.cssText = 'padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); display: grid; grid-template-columns: 80px 1fr auto; gap: var(--space-4); align-items: baseline;';
+
+            div.innerHTML = `
+                <div style="font-family: var(--font-mono); font-size: var(--text-h3); font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;">${gel.num.toString().padStart(2, '0')}</div>
+                <div>
+                    <div style="font-weight: 700; font-size: var(--text-body); margin-bottom: 4px;">Gel ${gel.num} · KM ${gel.kmFrom}–${gel.kmTo}</div>
+                    <div style="font-size: var(--text-small); color: var(--color-text-muted);">${gel.type} — ${gel.desc}</div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: var(--text-small); font-weight: 600; color: var(--color-text-muted); text-align: right;">${timeStr}</div>
+            `;
+            gelList.appendChild(div);
+        });
+    }
+
+    function formatTime(totalSeconds) {
+        const h = Math.floor(totalSeconds / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = Math.floor(totalSeconds % 60);
+        if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    calculateTimeline();
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        menu.classList.toggle('is-open');
+        const btn = document.querySelector('.nav-mobile');
+        if (btn) btn.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    }
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- GA4 -->
     <div style="display:none">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W24L7KH2YL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-W24L7KH2YL');
     </script>
     </div>
