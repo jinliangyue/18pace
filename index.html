@@ -191,309 +191,284 @@
     @media (min-width: 900px) { .v4-nav-mobile-menu, .v4-nav-mobile-menu.is-open { display: none !important; } }
 
     /* =================================================== */
-    /* 02 · HERO · PACE                                   */
+    /* 02 · V5 HERO · TARGET TIME → PACE → RACE PLAN       */
     /* =================================================== */
-    .v4-hero {
-      padding: 72px 0 96px;
-      background: var(--color-bg);
+    .v5-hero {
+      padding: 80px 0 120px;
+      background: #F7FBFF;
     }
     @media (min-width: 1024px) {
-      .v4-hero { padding: 112px 0 144px; }
+      .v5-hero { padding: 112px 0 144px; }
     }
-    .v4-hero-grid {
+    .v5-hero-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 72px;
-      align-items: start;
+      gap: 64px;
+      align-items: center;
     }
     @media (min-width: 1024px) {
-      .v4-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 96px; align-items: center; }
+      .v5-hero-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
     }
 
-    .v4-hero-eyebrow {
+    .v5-hero-eyebrow {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.24em;
-      color: var(--color-text-muted);
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      letter-spacing: 0.18em;
+      color: #38A9E8;
+      margin-bottom: 24px;
     }
-    .v4-hero-eyebrow::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--color-accent);
+    .v5-hero-headline {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #102A43;
+      margin: 0 0 16px;
     }
-    .v4-hero-headline {
-      font-weight: 900;
-      letter-spacing: -0.06em;
-      line-height: 0.85;
-      color: var(--color-text);
-      margin: 0 0 28px;
-    }
-    .v4-hero-headline-prefix {
-      display: block;
-      font-size: clamp(20px, 2vw, 28px);
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      color: var(--color-text-muted);
-      margin-bottom: 12px;
-      font-family: var(--font-mono);
-    }
-    .v4-hero-headline-time {
-      display: block;
-      font-size: clamp(96px, 16vw, 224px);
-      font-weight: 900;
-      color: var(--color-accent);
-      font-variant-numeric: tabular-nums;
-      letter-spacing: -0.07em;
-    }
-    .v4-hero-sub {
-      font-size: clamp(18px, 1.6vw, 22px);
-      color: var(--color-text-muted);
-      line-height: 1.45;
+    .v5-hero-sub {
+      font-size: 17px;
+      color: #102A43;
+      opacity: 0.6;
+      line-height: 1.5;
       max-width: 480px;
-      margin: 0 0 48px;
-      font-weight: 500;
+      margin: 0 0 56px;
     }
 
-    /* Hero calculator · minimal */
-    .v4-hero-calc-label {
+    /* Calculator · core interaction */
+    .v5-calc-label {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--color-text-muted);
-      margin-bottom: 16px;
+      letter-spacing: 0.18em;
+      color: #102A43;
+      opacity: 0.5;
+      margin-bottom: 12px;
       display: block;
     }
-    .v4-hero-calc-inputs {
+    .v5-calc-inputs {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-      max-width: 480px;
+      gap: 12px;
+      margin-bottom: 16px;
+      max-width: 460px;
     }
-    .v4-hero-calc-field {
+    .v5-calc-field {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-    .v4-hero-calc-field input {
+    .v5-calc-field input {
       width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--color-border);
-      padding: 8px 0;
+      background: #FFFFFF;
+      border: 1px solid #D9E8F2;
+      border-radius: 8px;
+      padding: 14px 12px;
       font-family: inherit;
-      font-size: clamp(36px, 4vw, 56px);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--color-text);
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #102A43;
       font-variant-numeric: tabular-nums;
-      caret-color: var(--color-accent);
+      text-align: center;
+      caret-color: #38A9E8;
       outline: none;
       -webkit-appearance: none;
       appearance: none;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
     }
-    .v4-hero-calc-field input:focus {
-      border-bottom-color: var(--color-accent);
+    .v5-calc-field input:focus {
+      border-color: #38A9E8;
+      box-shadow: 0 0 0 3px rgba(56, 169, 232, 0.12);
     }
-    .v4-hero-calc-field-unit {
+    .v5-calc-field-unit {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--color-text-muted);
-      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: #102A43;
+      opacity: 0.5;
+      text-align: center;
+      font-weight: 700;
     }
-    .v4-hero-calc-quick {
+    .v5-calc-quick {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 48px;
     }
-    .v4-hero-calc-quick button {
+    .v5-calc-quick button {
       padding: 8px 14px;
-      font-family: var(--font-mono);
+      font-family: inherit;
       font-size: 13px;
       font-weight: 600;
-      border: 1px solid var(--color-border);
-      border-radius: 6px;
-      background: transparent;
-      color: var(--color-text);
+      border: 1px solid #D9E8F2;
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: #102A43;
       font-variant-numeric: tabular-nums;
       letter-spacing: 0.02em;
       transition: all 180ms ease;
       cursor: pointer;
     }
-    .v4-hero-calc-quick button:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
+    .v5-calc-quick button:hover {
+      border-color: #38A9E8;
+      color: #38A9E8;
     }
-    .v4-hero-calc-quick button.is-active {
-      background: var(--color-accent);
+    .v5-calc-quick button.is-active {
+      background: #38A9E8;
       color: #FFFFFF;
-      border-color: var(--color-accent);
+      border-color: #38A9E8;
     }
-    .v4-hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 28px;
-      background: var(--color-text);
-      color: #FFFFFF;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-radius: 6px;
-      transition: background 180ms ease, transform 180ms ease;
-    }
-    .v4-hero-cta:hover {
-      background: var(--color-accent);
-      transform: translateY(-1px);
-    }
-    .v4-hero-cta-arrow { transition: transform 200ms ease; }
-    .v4-hero-cta:hover .v4-hero-cta-arrow { transform: translateX(4px); }
 
-    /* Hero right · RACE STRATEGY visual (not a card) */
-    .v4-strategy {
+    /* =================================================== */
+    /* Hero right · V5 RESULT AREA · 5:13 KM is the answer */
+    /* =================================================== */
+    .v5-result {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: 0;
     }
-    .v4-strategy-label {
+    .v5-result-label {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.24em;
-      color: var(--color-accent);
-      margin-bottom: 40px;
+      letter-spacing: 0.2em;
+      color: #38A9E8;
+      margin-bottom: 16px;
     }
-    .v4-strategy-stats {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--color-text);
-      margin-bottom: 56px;
-    }
-    @media (min-width: 700px) {
-      .v4-strategy-stats { grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-bottom: 48px; margin-bottom: 56px; }
-    }
-    @media (max-width: 700px) {
-      .v4-strategy-stats { gap: 24px; padding-bottom: 32px; margin-bottom: 40px; }
-      .v4-strategy-stat-num { font-size: 44px; }
-      .v4-strategy-stat-unit { margin-top: 8px; font-size: 10px; }
-      .v4-strategy-line { padding: 28px 0 20px; }
-      .v4-strategy-line-track {
-        max-width: calc(100% - 44px);
-        margin-right: 22px;
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-      .v4-strategy-checkpoint-time { font-size: 9px; top: -22px; font-weight: 600; }
-      .v4-strategy-checkpoint-label { font-size: 9px; top: 18px; font-weight: 600; }
-      .v4-strategy-checkpoint-dot { width: 8px; height: 8px; border-width: 1.5px; }
-      .v4-strategy-checkpoint.is-finish .v4-strategy-checkpoint-dot { width: 10px; height: 10px; box-shadow: 0 0 0 4px rgba(66, 165, 232, 0.18); }
-      .v4-strategy-axis { margin-top: 48px; font-size: 10px; }
-    }
-    .v4-strategy-stat-num {
-      font-size: clamp(56px, 8vw, 96px);
-      font-weight: 900;
+    .v5-result-pace {
+      font-size: clamp(120px, 18vw, 220px);
+      font-weight: 800;
       letter-spacing: -0.06em;
       line-height: 0.85;
-      color: var(--color-text);
+      color: #38A9E8;
       font-variant-numeric: tabular-nums;
+      margin: 0 0 12px;
       transition: opacity 180ms ease;
     }
-    .v4-strategy-stat-num.is-accent {
-      color: var(--color-accent);
+    .v5-result-pace-unit {
+      display: inline-block;
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 700;
+      color: #102A43;
+      letter-spacing: 0.02em;
+      margin-left: 8px;
+      vertical-align: 16%;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .v4-strategy-stat-unit {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--color-text-muted);
-      margin-top: 12px;
-      font-family: var(--font-mono);
+    .v5-result-context {
+      font-size: 14px;
+      color: #102A43;
+      opacity: 0.55;
+      margin: 0 0 56px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+    }
+    .v5-result-context strong {
+      color: #102A43;
+      opacity: 0.9;
+      font-weight: 700;
     }
 
-    /* Race line · the signature visual element */
-    .v4-strategy-line {
+    /* Race-line · simplified · same DOM structure (preserves JS sync) */
+    .v5-race-line {
       position: relative;
-      padding: 24px 0 16px;
+      padding: 28px 0 24px;
     }
-    .v4-strategy-line-track {
+    .v5-race-line-track {
       position: relative;
       height: 2px;
-      background: var(--color-text);
+      background: #D9E8F2;
     }
-    .v4-strategy-checkpoint {
+    .v5-checkpoint {
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
     }
-    .v4-strategy-checkpoint-dot {
-      width: 12px;
-      height: 12px;
+    .v5-checkpoint-dot {
+      width: 10px;
+      height: 10px;
       background: #FFFFFF;
-      border: 2px solid var(--color-text);
+      border: 2px solid #D9E8F2;
       border-radius: 50%;
-      transition: all 220ms ease;
+      transition: all 200ms ease;
     }
-    .v4-strategy-checkpoint:hover .v4-strategy-checkpoint-dot { transform: scale(1.2); }
-    .v4-strategy-checkpoint.is-finish .v4-strategy-checkpoint-dot {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      width: 16px;
-      height: 16px;
-      box-shadow: 0 0 0 8px rgba(66, 165, 232, 0.18);
+    .v5-checkpoint:hover .v5-checkpoint-dot { transform: scale(1.2); border-color: #38A9E8; }
+    .v5-checkpoint.is-finish .v5-checkpoint-dot {
+      background: #38A9E8;
+      border-color: #38A9E8;
+      width: 14px;
+      height: 14px;
+      box-shadow: 0 0 0 6px rgba(56, 169, 232, 0.18);
     }
-    .v4-strategy-checkpoint-label {
+    .v5-checkpoint-time {
       position: absolute;
       top: 22px;
       font-size: 11px;
       font-weight: 700;
-      font-family: var(--font-mono);
-      color: var(--color-text-muted);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      transition: color 200ms ease;
-    }
-    .v4-strategy-checkpoint.is-finish .v4-strategy-checkpoint-label { color: var(--color-accent); }
-    .v4-strategy-checkpoint-time {
-      position: absolute;
-      top: -32px;
-      font-size: 12px;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      color: var(--color-text);
-      letter-spacing: 0.02em;
+      font-family: 'JetBrains Mono', monospace;
+      color: #102A43;
+      opacity: 0.65;
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
       transition: opacity 180ms ease;
     }
-    .v4-strategy-checkpoint.is-finish .v4-strategy-checkpoint-time { color: var(--color-accent); }
-
-    .v4-strategy-axis {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 64px;
-      padding-top: 16px;
-      border-top: 1px solid var(--color-border-subtle);
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--color-text-muted);
+    .v5-checkpoint.is-finish .v5-checkpoint-time {
+      color: #38A9E8;
+      opacity: 1;
+    }
+    .v5-checkpoint-label {
+      position: absolute;
+      top: -22px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: #102A43;
+      opacity: 0.4;
+      white-space: nowrap;
       letter-spacing: 0.04em;
     }
-    .v4-strategy-axis span:last-child { color: var(--color-accent); font-weight: 700; }
+    .v5-checkpoint.is-finish .v5-checkpoint-label { color: #38A9E8; opacity: 1; }
+
+    .v5-race-axis {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #102A43;
+      opacity: 0.5;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .v5-race-axis span:last-child { color: #38A9E8; opacity: 1; font-weight: 700; }
+
+    @media (max-width: 700px) {
+      .v5-result-pace { font-size: 96px; }
+      .v5-result-pace-unit { font-size: 18px; margin-left: 4px; }
+      .v5-result-context { font-size: 12px; margin-bottom: 40px; }
+      .v5-race-line { padding: 24px 0 16px; }
+      .v5-race-line-track {
+        max-width: calc(100% - 44px);
+        margin-right: 22px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+      .v5-checkpoint-time { font-size: 9px; top: 18px; }
+      .v5-checkpoint-label { font-size: 9px; top: -18px; }
+      .v5-checkpoint-dot { width: 8px; height: 8px; }
+      .v5-checkpoint.is-finish .v5-checkpoint-dot {
+        width: 10px; height: 10px;
+        box-shadow: 0 0 0 4px rgba(56, 169, 232, 0.18);
+      }
+      .v5-race-axis { margin-top: 32px; font-size: 9px; }
+    }
 
     /* =================================================== */
     /* 03 · THE NUMBER IS ONLY THE START · PLAN            */
@@ -1120,106 +1095,85 @@
     <!-- ============================================ -->
     <!-- 02 · HERO · PACE                              -->
     <!-- ============================================ -->
-    <section class="v4-hero" id="calculator">
+    <section class="v5-hero" id="calculator">
         <div class="container">
-            <div class="v4-hero-grid">
+            <div class="v5-hero-grid">
 
-                <!-- Left · Headline + Calculator -->
-                <div class="v4-hero-content">
-                    <p class="v4-hero-eyebrow">18pace · Race Strategy</p>
-                    <h1 class="v4-hero-headline">
-                        <span class="v4-hero-headline-prefix">Break</span>
-                        <span class="v4-hero-headline-time">1:50.</span>
-                    </h1>
-                    <p class="v4-hero-sub">Know exactly how to get there.</p>
+                <!-- Left · Value + Calculator -->
+                <div class="v5-hero-input">
+                    <p class="v5-hero-eyebrow">Race Strategy Tool · Half Marathon</p>
+                    <h1 class="v5-hero-headline">Run your next half marathon.</h1>
+                    <p class="v5-hero-sub">Set your target finish. Get the pace. Run the race.</p>
 
-                    <label class="v4-hero-calc-label" for="hours">Target Finish</label>
-                    <div class="v4-hero-calc-inputs">
-                        <div class="v4-hero-calc-field">
+                    <label class="v5-calc-label" for="hours">Target Finish</label>
+                    <div class="v5-calc-inputs">
+                        <div class="v5-calc-field">
                             <input type="number" id="hours" value="1" min="0" max="5" aria-label="Hours">
-                            <span class="v4-hero-calc-field-unit">Hours</span>
+                            <span class="v5-calc-field-unit">Hours</span>
                         </div>
-                        <div class="v4-hero-calc-field">
+                        <div class="v5-calc-field">
                             <input type="number" id="minutes" value="50" min="0" max="59" aria-label="Minutes">
-                            <span class="v4-hero-calc-field-unit">Minutes</span>
+                            <span class="v5-calc-field-unit">Minutes</span>
                         </div>
-                        <div class="v4-hero-calc-field">
+                        <div class="v5-calc-field">
                             <input type="number" id="seconds" value="0" min="0" max="59" aria-label="Seconds">
-                            <span class="v4-hero-calc-field-unit">Seconds</span>
+                            <span class="v5-calc-field-unit">Seconds</span>
                         </div>
                     </div>
 
-                    <div class="v4-hero-calc-quick" role="group" aria-label="Quick target times">
+                    <div class="v5-calc-quick" role="group" aria-label="Quick target times">
                         <button type="button" data-time="1:30:0" onclick="setTime(1,30,0)">1:30</button>
                         <button type="button" data-time="1:40:0" onclick="setTime(1,40,0)">1:40</button>
                         <button type="button" data-time="1:50:0" class="is-active" onclick="setTime(1,50,0)">1:50</button>
                         <button type="button" data-time="2:00:0" onclick="setTime(2,0,0)">2:00</button>
                         <button type="button" data-time="2:10:0" onclick="setTime(2,10,0)">2:10</button>
                     </div>
-
-                    <a href="#strategy" class="v4-hero-cta">
-                        Calculate Pace
-                        <span class="v4-hero-cta-arrow">→</span>
-                    </a>
                 </div>
 
-                <!-- Right · Race Strategy visual (not a card) -->
-                <aside class="v4-strategy" id="strategy" aria-label="Race pace strategy">
-                    <p class="v4-strategy-label">Race Pace</p>
+                <!-- Right · Result · 5:13 is the answer -->
+                <aside class="v5-result" id="strategy" aria-label="Race pace result">
+                    <p class="v5-result-label">Your race pace</p>
+                    <div class="v5-result-pace"><span id="hero-pace">5:13</span><span class="v5-result-pace-unit">/ KM</span></div>
+                    <p class="v5-result-context">for a <strong id="hero-finish">1:50:00</strong> finish · <strong>21.1 KM</strong></p>
 
-                    <div class="v4-strategy-stats">
-                        <div>
-                            <div class="v4-strategy-stat-num">21.1</div>
-                            <div class="v4-strategy-stat-unit">Distance · KM</div>
-                        </div>
-                        <div>
-                            <div class="v4-strategy-stat-num is-accent" id="hero-pace">5:13</div>
-                            <div class="v4-strategy-stat-unit">Per KM Pace</div>
-                        </div>
-                        <div>
-                            <div class="v4-strategy-stat-num" id="hero-finish">1:50:00</div>
-                            <div class="v4-strategy-stat-unit">Finish Time</div>
-                        </div>
-                    </div>
-
-                    <div class="v4-strategy-line">
-                        <div class="v4-strategy-line-track">
-                            <div class="v4-strategy-checkpoint" style="left: 0%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="0">0:00</span>
-                                <span class="v4-strategy-checkpoint-label">0</span>
+                    <div class="v5-race-line">
+                        <div class="v5-race-line-track">
+                            <div class="v5-checkpoint" style="left: 0%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">0</span>
+                                <span class="v5-checkpoint-time" data-cp="0">0:00</span>
                             </div>
-                            <div class="v4-strategy-checkpoint" style="left: 23.7%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="5">26:04</span>
-                                <span class="v4-strategy-checkpoint-label">5</span>
+                            <div class="v5-checkpoint" style="left: 23.7%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">5</span>
+                                <span class="v5-checkpoint-time" data-cp="5">26:04</span>
                             </div>
-                            <div class="v4-strategy-checkpoint" style="left: 47.4%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="10">52:08</span>
-                                <span class="v4-strategy-checkpoint-label">10</span>
+                            <div class="v5-checkpoint" style="left: 47.4%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">10</span>
+                                <span class="v5-checkpoint-time" data-cp="10">52:08</span>
                             </div>
-                            <div class="v4-strategy-checkpoint" style="left: 71.1%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="15">1:18:12</span>
-                                <span class="v4-strategy-checkpoint-label">15</span>
+                            <div class="v5-checkpoint" style="left: 71.1%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">15</span>
+                                <span class="v5-checkpoint-time" data-cp="15">1:18:12</span>
                             </div>
-                            <div class="v4-strategy-checkpoint" style="left: 85.3%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="18">1:31:40</span>
-                                <span class="v4-strategy-checkpoint-label">18</span>
+                            <div class="v5-checkpoint" style="left: 85.3%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">18</span>
+                                <span class="v5-checkpoint-time" data-cp="18">1:31:40</span>
                             </div>
-                            <div class="v4-strategy-checkpoint is-finish" style="left: 100%;">
-                                <div class="v4-strategy-checkpoint-dot"></div>
-                                <span class="v4-strategy-checkpoint-time" data-cp="21.1">1:50:00</span>
-                                <span class="v4-strategy-checkpoint-label">21.1</span>
+                            <div class="v5-checkpoint is-finish" style="left: 100%;">
+                                <div class="v5-checkpoint-dot"></div>
+                                <span class="v5-checkpoint-label">21.1</span>
+                                <span class="v5-checkpoint-time" data-cp="21.1">1:50:00</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="v4-strategy-axis">
-                        <span>START</span>
-                        <span>FINISH · 21.1 KM</span>
+                    <div class="v5-race-axis">
+                        <span>Start</span>
+                        <span>Finish · 21.1 KM</span>
                     </div>
                 </aside>
 
